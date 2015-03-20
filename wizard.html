@@ -1,0 +1,60 @@
+<html>
+<head>
+	<title>FluentD Config wizard</title>
+	<script>
+
+		function getText(configObj){
+			var text = "";
+			if(configObj.hasOwnProperty('source')){
+				console.log('get it');
+				text += "<source>" + "\n" + 
+						"\ttype " + configObj.source.type + "\n" +
+						"\tport " + configObj.source.port + "\n" +
+						"</source>";
+			}
+			return text;
+		};
+
+		function goSave(){
+			console.log("clicked");
+			var text = getText({
+				source : {
+					type : document.getElementById('source_type').value,
+					port : document.getElementById('source_port').value
+				}
+			});
+			var textFileAsBlob = new Blob([text], {type:'text/plain'});
+			var downloadLink = document.createElement("a");
+			downloadLink.download = 'td-agent.conf';
+			downloadLink.innerHTML = "Download File";
+			if (window.URL != null)
+			{
+				// Chrome allows the link to be clicked
+				// without actually adding it to the DOM.
+				downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+			}
+			else
+			{
+				// Firefox requires the link to be added to the DOM
+				// before it can be clicked.
+				downloadLink.href = window.URL.createObjectURL(textFileAsBlob);
+				downloadLink.onclick = function(event){
+					document.body.removeChild(event.target);
+				};
+				downloadLink.style.display = "none";
+				document.body.appendChild(downloadLink);
+			}
+			downloadLink.click();
+		};
+	</script>
+</head>
+<body>
+	Source
+	type : <select id='source_type'>
+			<option value='foward'>forward</option>
+			<option value='http'>http</option>
+			</select>
+	port  : <input type="text" id='source_port'></input>
+	<input type='button' onclick='goSave()' value="save"/>
+</body>
+</html>
