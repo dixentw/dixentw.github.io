@@ -1,0 +1,46 @@
+<html>
+	<head>
+		<title>CartoDB Test</title>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script src="http://libs.cartocdn.com/cartodb.js/v3/3.12/cartodb.js"></script>
+		<script>
+		    $(document).ready(function(){
+		    	console.log("document ready");
+		    	var lon, lat;
+				if (navigator.geolocation) {
+					console.log("fffff1111");
+	        		navigator.geolocation.getCurrentPosition(function(position){
+						console.log(position);
+	        			$('#show_pos').text('longtitute : ' + position.coords.longitude);
+	        			$('#show_pos').append(', latitude : ' + position.coords.latitude);
+	        			lon = position.coords.longitude;
+	        			lat = position.coords.latitude;
+	        		}, function(error){console.log(error)});
+			    }else{
+			    	console.log("fffff");
+			    	$('#show_pos').text('not support geolocation');
+			    }
+			    console.log("document ready 1");
+		    	$('#gogogo').click(function(){
+			    	var sql = new cartodb.SQL({ user: 'dixentw', api_key: '39c3e5036c51f64d6e5c965ed4c1507d27083723' });
+					sql.execute("INSERT INTO msg (the_geom, message) VALUES (ST_GeomFromText('POINT("+ 
+						 lon+" "+  lat +")', 4326), '"+ $("#message").val() + "')")
+					.done(function(data) {
+						console.log(data.rows);
+					}).error(function(errors) {
+						console.log("errors:" + errors);
+					});
+		    	})
+		    });
+		</script>
+	</head>
+	<body>
+		<h2>CartoDB Javascript API test client</h2>
+		<hr>
+		Position : 
+		<div id='show_pos'></div>
+		<hr>
+		Message : <input type="text" id='message'/>
+		<input type="button" id='gogogo' value="send"/>
+	</body>
+</html>
