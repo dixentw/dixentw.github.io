@@ -8,7 +8,6 @@
 		    	console.log("document ready");
 		    	var lon, lat;
 				if (navigator.geolocation) {
-					console.log("fffff1111");
 	        		navigator.geolocation.getCurrentPosition(function(position){
 						console.log(position);
 	        			$('#show_pos').text('longtitute : ' + position.coords.longitude);
@@ -17,7 +16,6 @@
 	        			lat = position.coords.latitude;
 	        		}, function(error){console.log(error)});
 			    }else{
-			    	console.log("fffff");
 			    	$('#show_pos').text('not support geolocation');
 			    }
 			    console.log("document ready 1");
