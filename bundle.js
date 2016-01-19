@@ -32573,11 +32573,6 @@
 	        subtitleStr += "by " + news.by + " " + prettyDate(news.time) + "  | ";
 	        subtitleStr += news.descendants + " comments";
 	        return _react2.default.createElement(_cardHeader2.default, {
-	            avatar: _react2.default.createElement(
-	                _avatar2.default,
-	                { style: { color: 'red' } },
-	                'A'
-	            ),
 	            style: this.state.readStyle,
 	            title: news.title,
 	            subtitle: subtitleStr,
