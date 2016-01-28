@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>readiblity parser</title>
+        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <script>
+            $(document).ready(function(){
+                $('#btn').click(function(){
+                    var dataUrl = $('#inputUrl').val();
+                    console.log(dataUrl);
+                    var d = {
+                        "url" : dataUrl,
+                        "token" : "a1c1cccd8cd68c9f29585f3cae2d892499670fab"
+                    };
+                    $.ajax({
+                        url : 'https://readability.com/api/content/v1/parser',
+                        data : d,
+                        dataType : "json",
+                        success : function(rs){
+                            $('#result').empty();
+                            $('#result').append(rs.content);
+                        },
+                        error : function(a,b,c){
+                            console.log(b)
+                            console.log(c)
+                        }
+                    });
+                });
+            });
+        </script>
+    </head>
+    <body>
+        url : <input type="text" id="inputUrl"></input>
+        <input type="button" value="send" id="btn"/>
+        <hr>
+        <div id="result"></div>
+    </body>
+</html>
