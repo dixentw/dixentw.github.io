@@ -39451,7 +39451,7 @@
 	"use strict";
 
 	var Config = {
-	    mode: "dev",
+	    mode: "prd",
 	    localUrl: "http://localhost:3000",
 	    gceUrl: "http://130.211.249.49:8080",
 	    getUrl: function getUrl() {
