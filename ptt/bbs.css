@@ -42,8 +42,8 @@
 	overflow-wrap: break-word;
 	word-wrap: break-word;
 	margin: 0 auto;
-    padding: 0;
-	min-width: 600px;
+    	padding: 0;
+	/*min-width: 600px;*/
 	max-width: 1200px;
 }
 
