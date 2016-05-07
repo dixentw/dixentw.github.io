@@ -10,18 +10,364 @@
     <atom:link href="https://dixentw.github.io/s/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>java 小知識</title>
+      <title>java各種小知識</title>
       <link>https://dixentw.github.io/s/page/java/</link>
       <pubDate>Sat, 07 May 2016 15:28:03 +0800</pubDate>
       
       <guid>https://dixentw.github.io/s/page/java/</guid>
       <description>
 
+&lt;h3 id=&#34;garbage-collection:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Garbage collection&lt;/h3&gt;
+
 &lt;h3 id=&#34;thread-things:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Thread Things&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;p&gt;注意事項分類&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;盡量使用local primative variable, 有reference的object就不一定。&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;TheadLocal Class使用方法，看例子：&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public class Solution{
+public static class MyRunner implements Runnable{
+    private ThreadLocal&amp;lt;Double&amp;gt; localInt = new ThreadLocal&amp;lt;Double&amp;gt;();
+    private double noProtect = 0.0;
+    @Override
+    public void run(){
+        double d = Math.random();
+        System.out.println(d);
+        noProtect = d;
+        localInt.set(d);
+        try{
+            Thread.sleep(1000);
+        }catch(InterruptedException e){
+            //nothing here now
+        }
+        System.out.println(localInt.get());
+        System.out.println(noProtect);
+    }
+}
+public static void go() throws Exception{
+    MyRunner m1 = new MyRunner();
+    Thread thread1 = new Thread(m1);
+    Thread thread2 = new Thread(m1);
+
+
+    thread1.start();
+    thread2.start();
+
+
+    thread1.join(); //wait for thread 1 to terminate
+    thread2.join(); //wait for thread 2 to terminate
+}
+}
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;需要share的情況怎麼辦？&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;要取用大家共用的object，使用synchronized比較好（但比較慢）&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Volatile &lt;img src=&#34;http://tutorials.jenkov.com/images/java-concurrency/java-memory-model-6.png&#34; alt=&#34;記憶體的圖&#34; /&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;因為現在的電腦有多個cpu, 還有cpu-memory cache, 所以某個thread要是修改了某個variable, 要確定在每個thread都看到的話，就需要volatile這個關鍵字&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;multi-thread的volatile必須synchronized, 不然就race condition了&lt;/p&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Thread 控制:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Object的&lt;code&gt;notify()&lt;/code&gt;, &lt;code&gt;wait()&lt;/code&gt;, &lt;code&gt;notifyAll()&lt;/code&gt;, 與另外一個什麼我現在忘了..&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Signaling via Shared Objects: 若B thread要等A thread做完某事，才能接手，此刻，他們需要共同reference一個object, 然後set這個object的value，讓另外一個thread看，另外一個thread要polling這個variable, 此為busy wait。&lt;/li&gt;
+&lt;li&gt;wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)
+```
+// A correct implementation of a producer and consumer.
+class Q {
+int n;
+boolean valueSet = false;
+synchronized int get() {
+    if(!valueSet)
+    try {
+        wait();
+    } catch(InterruptedException e) {
+        System.out.println(&amp;ldquo;InterruptedException caught&amp;rdquo;);
+    }
+    System.out.println(&amp;ldquo;Got: &amp;ldquo; + n);
+    valueSet = false;
+    notify();
+    return n;
+}
+synchronized void put(int n) {
+    if(valueSet)
+    try {
+        wait();
+    } catch(InterruptedException e) {
+        System.out.println(&amp;ldquo;InterruptedException caught&amp;rdquo;);
+    }
+    this.n = n;
+    valueSet = true;
+    System.out.println(&amp;ldquo;Put: &amp;ldquo; + n);
+    notify();
+}
+}&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;class Producer implements Runnable {
+    Q q;
+    Producer(Q q) {
+        this.q = q;
+        new Thread(this, &amp;ldquo;Producer&amp;rdquo;).start();
+    }
+    public void run() {
+        int i = 0;
+        while(true) {
+            q.put(i++);
+        }
+    }
+}&lt;/p&gt;
+
+&lt;p&gt;class Consumer implements Runnable {
+    Q q;
+    Consumer(Q q) {
+        this.q = q;
+        new Thread(this, &amp;ldquo;Consumer&amp;rdquo;).start();
+    }
+    public void run() {
+        while(true) {
+            q.get();
+        }
+    }
+}&lt;/p&gt;
+
+&lt;p&gt;class PCFixed {
+    public static void main(String args[]) {
+        Q q = new Q();
+        new Producer(q);
+        new Consumer(q);
+        System.out.println(&amp;ldquo;Press Control-C to stop.&amp;rdquo;);
+    }
+}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* idiom
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;// The standard idiom for calling the wait method in Java
+synchronized (sharedObject) {
+    while (condition) {
+           sharedObject.wait();
+           // (Releases lock, and reacquires on wakeup)
+    }
+    // do action based upon condition e.g. take or put into queue
+}
+```&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ol&gt;
 
 &lt;h3 id=&#34;data-structure:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Data Structure&lt;/h3&gt;
 
-&lt;p&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/p&gt;
+&lt;h3 id=&#34;others:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Others&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;transient?&lt;/li&gt;
+&lt;li&gt;Abstract class vs Interface&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;oo-principle:2fe63a086631fd317b5011f46eddfec4&#34;&gt;OO principle&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;polymorphism &lt;a name=&#34;poly&#34;&gt;&lt;/a&gt;
+
+&lt;ol&gt;
+&lt;li&gt;利用父類別的型態&lt;/li&gt;
+&lt;li&gt;接受子類別的物件&lt;/li&gt;
+&lt;li&gt;做相同的動作&lt;/li&gt;
+&lt;li&gt;引發不同的行為&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;design-pattern:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Design Pattern&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Strategy&lt;/li&gt;
+&lt;li&gt;Decorator&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;面經:2fe63a086631fd317b5011f46eddfec4&#34;&gt;面經&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;九种基本数据类型的大小，以及他们的封装类。
+
+&lt;ul&gt;
+&lt;li&gt;byte  1byte, 8-bits&lt;/li&gt;
+&lt;li&gt;short 2bytes&lt;/li&gt;
+&lt;li&gt;int   4bytes&lt;/li&gt;
+&lt;li&gt;long  8bytes&lt;/li&gt;
+&lt;li&gt;float 4bytes&lt;/li&gt;
+&lt;li&gt;double    8bytes&lt;/li&gt;
+&lt;li&gt;boolean   true/false 1 bit&lt;/li&gt;
+&lt;li&gt;char  16-bit, 2bytes&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Switch能否用string做参数？
+
+&lt;ul&gt;
+&lt;li&gt;從JDK 7 之後就可以了&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;equals与==的区别。
+
+&lt;ul&gt;
+&lt;li&gt;== compare with reference, equals compare the string value&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Object有哪些公用方法？
+
+&lt;ul&gt;
+&lt;li&gt;othres:
+
+&lt;ul&gt;
+&lt;li&gt;clone() : 複製&lt;/li&gt;
+&lt;li&gt;equals() : 實作物件的相等&lt;/li&gt;
+&lt;li&gt;finalize() : GC要回收這個object的時候會call這個method&lt;/li&gt;
+&lt;li&gt;getClass() :&lt;/li&gt;
+&lt;li&gt;hashCode() :&lt;/li&gt;
+&lt;li&gt;toString()&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;thread:
+
+&lt;ul&gt;
+&lt;li&gt;notify() : 把在等這個物件的thread叫醒&lt;/li&gt;
+&lt;li&gt;notifyAll() : 對全部在等這個物件的thread叫醒&lt;/li&gt;
+&lt;li&gt;wait() : 讓現在在用的thread睡著&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Java的四种引用(reference)，强弱软虚，用到的场景。
+
+&lt;ul&gt;
+&lt;li&gt;normal Reference : 正常物件有的reference，既然有，GC就不會回收這個物件&lt;/li&gt;
+&lt;li&gt;Soft Reference :&lt;/li&gt;
+&lt;li&gt;Weak Reference : 當某物件只剩下weak reference, GC會把它清掉
+&lt;code&gt;
+Car car = new Car(22000,&amp;quot;silver&amp;quot;);  
+WeakReference&amp;lt;Car&amp;gt; weakCar = new WeakReference&amp;lt;Car&amp;gt;(car);
+int i=0;  
+while(true){  
+    if(weakCar.get()!=null){  
+        i++;  
+        System.out.println(&amp;quot;Object is alive for &amp;quot;+i+&amp;quot; loops - &amp;quot;+weakCar);  
+    }else{  
+        System.out.println(&amp;quot;Object has been collected.&amp;quot;);  
+        break;  
+    }  
+}  
+&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Phantom Reference&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Hashcode的作用 : 在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同&lt;/li&gt;
+&lt;li&gt;ArrayList、LinkedList、Vector的区别。&lt;/li&gt;
+&lt;li&gt;String、StringBuffer与StringBuilder的区别。&lt;/li&gt;
+&lt;li&gt;Map、Set、List、Queue、Stack的特点与用法。&lt;/li&gt;
+&lt;li&gt;HashMap和HashTable的区别。&lt;/li&gt;
+&lt;li&gt;HashMap和ConcurrentHashMap的区别，HashMap的底层源码。&lt;/li&gt;
+&lt;li&gt;TreeMap、HashMap、LindedHashMap的区别。&lt;/li&gt;
+&lt;li&gt;Collection包结构，与Collections的区别。&lt;/li&gt;
+&lt;li&gt;try catch finally，try里有return，finally还执行么？&lt;/li&gt;
+&lt;li&gt;Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。&lt;/li&gt;
+&lt;li&gt;Java面向对象的三个特征与含义。&lt;/li&gt;
+&lt;li&gt;Override和Overload的含义去区别。&lt;/li&gt;
+&lt;li&gt;Interface与abstract类的区别。&lt;/li&gt;
+&lt;li&gt;Static class 与non static class的区别。&lt;/li&gt;
+&lt;li&gt;java多态的实现原理。 請見&lt;a href=&#34;#poly&#34;&gt;上面&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;实现多线程的两种方法：Thread与Runable。&lt;/li&gt;
+&lt;li&gt;线程同步的方法：sychronized、lock、reentrantLock等。&lt;/li&gt;
+&lt;li&gt;锁的等级：方法锁、对象锁、类锁。&lt;/li&gt;
+&lt;li&gt;写出生产者消费者模式。&lt;/li&gt;
+&lt;li&gt;ThreadLocal的设计理念与作用。&lt;/li&gt;
+&lt;li&gt;ThreadPool用法与优势。&lt;/li&gt;
+&lt;li&gt;Concurrent包里的其他东西：ArrayBlockingQueue、CountDownLatch等等。&lt;/li&gt;
+&lt;li&gt;wait()和sleep()的区别。&lt;/li&gt;
+&lt;li&gt;foreach与正常for循环效率对比。&lt;/li&gt;
+&lt;li&gt;Java IO与NIO。&lt;/li&gt;
+&lt;li&gt;反射的作用于原理。&lt;/li&gt;
+&lt;li&gt;泛型常用特点，List&lt;String&gt;能否转为List&lt;Object&gt;。&lt;/li&gt;
+&lt;li&gt;解析XML的几种方式的原理与特点：DOM、SAX、PULL。&lt;/li&gt;
+&lt;li&gt;Java与C++对比。&lt;/li&gt;
+&lt;li&gt;Java1.7与1.8新特性。&lt;/li&gt;
+&lt;li&gt;设计模式：单例、工厂、适配器、责任链、观察者等等。&lt;/li&gt;
+&lt;li&gt;JNI的使用。&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;JVM
+1. 内存模型以及分区，需要详细到每个区放什么。
+2. 堆里面的分区：Eden，survival from to，老年代，各自的特点。
+3. 对象创建方法，对象的内存分配，对象的访问定位。
+4. GC的两种判定方法：引用计数与引用链。
+5. GC的三种收集方法：标记清除、标记整理、复制算法的原理与特点，分别用在什么地方，如果让你优化收集方法，有什么思路？
+6. GC收集器有哪些？CMS收集器与G1收集器的特点。
+7. Minor GC与Full GC分别在什么时候发生？
+8. 几种常用的内存调试工具：jmap、jstack、jconsole。
+9. 类加载的五个过程：加载、验证、准备、解析、初始化。
+10. 双亲委派模型：Bootstrap ClassLoader、Extension ClassLoader、ApplicationClassLoader。
+11. 分派：静态分派与动态分派。
+JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法这块问得比较多，可以在网上多找几篇博客来看看。
+推荐书籍：《深入理解java虚拟机》&lt;/p&gt;
+
+&lt;p&gt;操作系统
+1. 进程和线程的区别。
+2. 死锁的必要条件，怎么处理死锁。
+3. Window内存管理方式：段存储，页存储，段页存储。
+4. 进程的几种状态。
+5. IPC几种通信方式。
+6. 什么是虚拟内存。
+7. 虚拟地址、逻辑地址、线性地址、物理地址的区别。
+因为是做android的这一块问得比较少一点，还有可能上我简历上没有写操作系统的原因。
+推荐书籍：《深入理解现代操作系统》&lt;/p&gt;
+
+&lt;p&gt;TCP/IP
+1. OSI与TCP/IP各层的结构与功能，都有哪些协议。
+2. TCP与UDP的区别。
+3. TCP报文结构。
+4. TCP的三次握手与四次挥手过程，各个状态名称与含义，TIMEWAIT的作用。
+5. TCP拥塞控制。
+6. TCP滑动窗口与回退N针协议。
+7. Http的报文结构。
+8. Http的状态码含义。
+9. Http request的几种类型。
+10. Http1.1和Http1.0的区别
+11. Http怎么处理长连接。
+12. Cookie与Session的作用于原理。
+13. 电脑上访问一个网页，整个过程是怎么样的：DNS、HTTP、TCP、OSPF、IP、ARP。
+14. Ping的整个过程。ICMP报文是什么。
+15. C/S模式下使用socket通信，几个关键函数。
+16. IP地址分类。
+17. 路由器与交换机区别。&lt;/p&gt;
+
+&lt;p&gt;网络其实大体分为两块，一个TCP协议，一个HTTP协议，只要把这两块以及相关协议搞清楚，一般问题不大。
+推荐书籍：《TCP/IP协议族》&lt;/p&gt;
+
+&lt;p&gt;数据结构与算法
+1. 链表与数组。
+2. 队列和栈，出栈与入栈。
+3. 链表的删除、插入、反向。
+4. 字符串操作。
+5. Hash表的hash函数，冲突解决方法有哪些。
+6. 各种排序：冒泡、选择、插入、希尔、归并、快排、堆排、桶排、基数的原理、平均时间复杂度、最坏时间复杂度、空间复杂度、是否稳定。
+7. 快排的partition函数与归并的Merge函数。
+8. 对冒泡与快排的改进。
+9. 二分查找，与变种二分查找。
+10. 二叉树、B+树、AVL树、红黑树、哈夫曼树。
+11. 二叉树的前中后续遍历：递归与非递归写法，层序遍历算法。
+12. 图的BFS与DFS算法，最小生成树prim算法与最短路径Dijkstra算法。
+13. KMP算法。
+14. 排列组合问题。
+15. 动态规划、贪心算法、分治算法。（一般不会问到）
+16. 大数据处理：类似10亿条数据找出最大的1000个数&amp;hellip;&amp;hellip;&amp;hellip;等等
+算法的话其实是个重点，因为最后都是要你写代码，所以算法还是需要花不少时间准备，这里有太多算法题，写不全，我的建议是没事多在OJ上刷刷题（牛客网、leetcode等），剑指offer上的算法要能理解并自己写出来，编程之美也推荐看一看。
+推荐书籍：《大话数据结构》《剑指offer》《编程之美》&lt;/p&gt;
 </description>
     </item>
     
