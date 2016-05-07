@@ -1,0 +1,602 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>工作日誌</title>
+    <link>https://dixentw.github.io/s/</link>
+    <description>Recent content on 工作日誌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 May 2016 15:28:03 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/s/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>java 小知識</title>
+      <link>https://dixentw.github.io/s/page/java/</link>
+      <pubDate>Sat, 07 May 2016 15:28:03 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/java/</guid>
+      <description>
+
+&lt;h3 id=&#34;thread-things:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Thread Things&lt;/h3&gt;
+
+&lt;h3 id=&#34;data-structure:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Data Structure&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>506</title>
+      <link>https://dixentw.github.io/s/post/506/</link>
+      <pubDate>Fri, 06 May 2016 10:44:08 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/post/506/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;SimpleRNN做不出來啊~~
+
+&lt;ul&gt;
+&lt;li&gt;acc 都是0&lt;/li&gt;
+&lt;li&gt;原因：之前的設定是loss=&amp;ldquo;binary_crossentropy&amp;rdquo;, 看起來這個model只會判別0, 1。要multi-classification的話，需要把output label標成 [0,0,0,0,1,0,0,0,0] 這樣的array, array length代表所有的classes，剛剛試過980(直接把string hash成integer)，看起來效果不是很理想。accuracy只有0.181603375532&lt;/li&gt;
+&lt;li&gt;Try2 : 把class 降低
+
+&lt;ul&gt;
+&lt;li&gt;副本：可以找找numpy有沒有現成的utils可以做這件事，不然就要自己手動寫了。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>505</title>
+      <link>https://dixentw.github.io/s/post/505/</link>
+      <pubDate>Thu, 05 May 2016 10:16:15 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/post/505/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;find a bug : OP panel, TD module
+
+&lt;ul&gt;
+&lt;li&gt;如果有關掉某些profile, 則TD模組不會產出他的stat, 意味著，在aggregator的過程裡面，會有些td的id個數會不一致，這種情況下，需要把沒有出現過的id, 寫進map裡面&lt;/li&gt;
+&lt;li&gt;refactor, merge 的情況下，應該使用map，簡化迴圈。&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>react與js的各種小知識</title>
+      <link>https://dixentw.github.io/s/page/react/</link>
+      <pubDate>Wed, 04 May 2016 10:15:22 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/react/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://eddychang.me/blog/javascript/78-react-style-guide-zhtw.html&#34;&gt;React Style Guild 中文&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://camjackson.net/post/9-things-every-reactjs-beginner-should-know&#34;&gt;Tips for beginner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rhadow.github.io/2015/07/30/beginner-redux/&#34;&gt;redux入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://redux.js.org&#34;&gt;redux官方文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dosudo.com/2015/10/18/react-生態系介紹-by-mr-friday/&#34;&gt;react生態系&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattermost/platform&#34;&gt;可以研讀的project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.formidable.com/react-inline-styles-and-the-future-of-css-cbc85e74bc42#.ecp8k6uck&#34;&gt;inline style&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Javascript&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://pofolio.cc/2015/03/09/javascript-how-to-promise-well/&#34;&gt;Promise well&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fred-zone.blogspot.tw/2015/05/javascript.html&#34;&gt;js fog迷霧啊～～&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch2.html&#34;&gt;寫得不錯的javascript functional 指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://es6.ruanyifeng.com/#docs/async&#34;&gt;ES6&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Front-End&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://frontendmasters.gitbooks.io/front-end-handbook/content/practice/types-of-front-end-dev.html&#34;&gt;front-end handbook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.csdn.net/zhbhun/article/details/47208885&#34;&gt;webpack學習筆記&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.restapitutorial.com/lessons/restquicktips.html&#34;&gt;rest api 指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ww12.f2eclass.com&#34;&gt;front-end課程&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;MISC&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hackingwithswift.com/read/31/overview&#34;&gt;IOS pratices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://marc.helbling.fr/2014/09/practical-git-introduction&#34;&gt;GIT Pratical Guide &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.alexkras.com/19-git-tips-for-everyday-use/&#34;&gt;every day git tips&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>504</title>
+      <link>https://dixentw.github.io/s/post/504/</link>
+      <pubDate>Wed, 04 May 2016 10:00:38 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/post/504/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;run keras of RNN, using default parameters, should understand &lt;code&gt;fit()&lt;/code&gt; training output means&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;POC zeromq with 4003 port and one DF&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;zeromq的麻煩地方: 因為綁定native libzmq, 所以要build的話要挑build machine來做&lt;/li&gt;
+&lt;li&gt;需要jenkins了嗎&amp;hellip;.&lt;/li&gt;
+&lt;li&gt;POC on dixengce:
+
+&lt;ul&gt;
+&lt;li&gt;scope: publisher 一直loop data給subscriber, sub晚點加入也沒關係，可以接收得到，值得注意的是，sub第一次啟動後，會不會漏掉第一個pub, 這是需要實驗的&lt;/li&gt;
+&lt;li&gt;測試成功，看起來沒問題。但是以收1000筆速度來看好像有點慢&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>503</title>
+      <link>https://dixentw.github.io/s/post/503/</link>
+      <pubDate>Tue, 03 May 2016 11:25:55 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/post/503/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Setting up keras, run on Theano&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;先使用docker&lt;/li&gt;
+&lt;li&gt;KDD99的training set還有testing set都齊了，目前工作重點在於建立RNN與LSTM的運算pipeline&lt;/li&gt;
+&lt;li&gt;learning jargons, 直接讀manual太多術語不懂@@, 先看tutorial
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://neuralnetworksanddeeplearning.com&#34;&gt;原文書啊&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.csdn.net/u012162613/article/details/45397033&#34;&gt;Deep learning&lt;/a&gt;中文參考手冊&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Other:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;zero mq layer between SSDB with Agent?&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;OP-Panel:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;CDD request : ACL filter max to 16&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>292. Nim Game</title>
+      <link>https://dixentw.github.io/s/leetcode/nimgame/</link>
+      <pubDate>Sat, 30 Apr 2016 09:28:52 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/nimgame/</guid>
+      <description>&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
+
+&lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
+
+&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;/p&gt;
+
+&lt;p&gt;Hint:&lt;/p&gt;
+
+&lt;p&gt;If there are 5 stones in the heap, could you figure out a way to remove the stones such that you will always be the winner?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;是4的倍數一定輸&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public boolean canWinNim(int n) {
+    if(n%4!=0){
+        return true;
+    }else{
+        return false;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>100. Same Tree</title>
+      <link>https://dixentw.github.io/s/leetcode/sametree/</link>
+      <pubDate>Sat, 30 Apr 2016 09:25:21 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/sametree/</guid>
+      <description>&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
+
+&lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;遞回下去看子樹是不是一樣就好了，如果自己是leaf, 回傳true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public boolean isSameTree(TreeNode p, TreeNode q) {
+    if(p!=null &amp;amp;&amp;amp; q!=null){
+        if(p.val!=q.val){
+            return false;
+        }else{
+            return isSameTree(p.left, q.left) &amp;amp;&amp;amp; isSameTree(p.right, q.right);
+        }
+    }else if(p==null &amp;amp;&amp;amp; q==null){
+        return true;
+    }else{
+        return false;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>49. Group Anagrams</title>
+      <link>https://dixentw.github.io/s/leetcode/groupanagram/</link>
+      <pubDate>Sat, 30 Apr 2016 09:15:42 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/groupanagram/</guid>
+      <description>&lt;p&gt;Given an array of strings, group anagrams together.&lt;/p&gt;
+
+&lt;p&gt;For example, given: &lt;code&gt;[&amp;quot;eat&amp;quot;, &amp;quot;tea&amp;quot;, &amp;quot;tan&amp;quot;, &amp;quot;ate&amp;quot;, &amp;quot;nat&amp;quot;, &amp;quot;bat&amp;quot;]&lt;/code&gt;,
+Return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[
+  [&amp;quot;ate&amp;quot;, &amp;quot;eat&amp;quot;,&amp;quot;tea&amp;quot;],
+  [&amp;quot;nat&amp;quot;,&amp;quot;tan&amp;quot;],
+  [&amp;quot;bat&amp;quot;]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note:
+For the return value, each inner list&amp;rsquo;s elements must follow the lexicographic order.
+All inputs will be in lower-case.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;解一：使用前面#242發展的演算法，用兩個index : i, j, 第一個字的時候，掃後面的字是不是anagram，一樣的就放進同一個字的arraylist, 此法一直過不了時間限制&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public static boolean isAnagram2(String s, String t){
+	char[] scs = s.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	char[] tcs = t.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	Arrays.sort(scs);
+	Arrays.sort(tcs);
+	if(scs.length!=tcs.length){
+		return false;
+	}else{
+		for(int i=0; i&amp;lt;scs.length; i++){
+			if(scs[i]!=tcs[i]){
+				return  false;
+			}
+		}
+		return true;
+	}
+}
+
+public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] strs) {
+    List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; result = new ArrayList&amp;lt;List&amp;lt;String&amp;gt;&amp;gt;();
+	for(int i=0; i&amp;lt;strs.length;i++){
+		List&amp;lt;String&amp;gt; inner = new ArrayList&amp;lt;String&amp;gt;();
+		if(strs[i]!=&amp;quot;&amp;quot;){
+			inner.add(strs[i]);
+			for(int j=0 ;j&amp;lt;strs.length;j++){
+				if(i!=j &amp;amp;&amp;amp; isAnagram2(strs[i],strs[j])){
+					inner.add(strs[j]);
+					strs[j] = &amp;quot;&amp;quot;;
+				}
+			}
+			result.add(inner);
+		}
+	}
+	return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;解二：把字先sort過，放進map, 如果已經存在了，代表有anagram了，把自己的index存進value的list即可。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] strs) {
+    List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; result = new ArrayList&amp;lt;List&amp;lt;String&amp;gt;&amp;gt;();
+	if(strs.length==0){
+		return result;
+	}
+	Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; table = new HashMap&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt;();
+	for(int i=0;i&amp;lt;strs.length;i++){
+		char[] c = strs[i].replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+		Arrays.sort(c);
+		String tmpSorted = new String(c);
+		List&amp;lt;Integer&amp;gt; index = table.get(tmpSorted);
+		if(index == null){
+			index = new ArrayList&amp;lt;Integer&amp;gt;();
+			index.add(i);
+			table.put(tmpSorted, index);
+		}else{
+			index.add(i);
+		}
+	}
+	for(String k : table.keySet()){
+		List&amp;lt;String&amp;gt; inner = new ArrayList&amp;lt;String&amp;gt;();
+		List&amp;lt;Integer&amp;gt; idx = table.get(k);
+		for(Integer i : idx){
+			inner.add(strs[i]);
+		}
+		Collections.sort(inner);
+		result.add(inner);
+	}
+	return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;能夠改得更快嗎？&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nexusguard Settings</title>
+      <link>https://dixentw.github.io/s/page/nxgsetting/</link>
+      <pubDate>Fri, 29 Apr 2016 17:49:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/nxgsetting/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;把有常回來找的東西貼在這裡:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;常用指令：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;LDAP密碼:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最複雜的那個Csxxxx)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://serversforhackers.com/video/process-monitoring-with-upstart&#34;&gt;Upstart reference&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nexusguard Project TODO</title>
+      <link>https://dixentw.github.io/s/page/todonxg/</link>
+      <pubDate>Fri, 29 Apr 2016 11:31:05 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/todonxg/</guid>
+      <description>&lt;p&gt;Few things to do here.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Platform improvement&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;google cluster的etcd? 想知道寫入速度有多快可以sync&lt;/li&gt;
+&lt;li&gt;ssdb client reconnect 加強？How?&lt;/li&gt;
+&lt;li&gt;SSDB sync 還要走嗎？&lt;/li&gt;
+&lt;li&gt;G-Center Monitor refactor到不會crash, 可以一直看？&lt;/li&gt;
+&lt;li&gt;redis go client replace ssdb client?
+
+&lt;ul&gt;
+&lt;li&gt;已經沒有reconnect的功能了&amp;hellip;&lt;/li&gt;
+&lt;li&gt;zeromq可以解這個問題嗎？&lt;/li&gt;
+&lt;li&gt;DF 4003可以通 :) , sadly TD, DPI 4003不行&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DNS project&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User ACL: need to do?
+
+&lt;ol&gt;
+&lt;li&gt;Add new permission:AdminReadOnly&lt;/li&gt;
+&lt;li&gt;Add new permission:AdminManager -&amp;gt; 開一個帳號，如果是這種User, 不要load zone file, 只給他管帳號的功能就好了&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OP project&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;op panel refactor
+
+&lt;ul&gt;
+&lt;li&gt;$resource, model translation&lt;/li&gt;
+&lt;li&gt;chart section code&lt;/li&gt;
+&lt;li&gt;canvas chart (improvement)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>429</title>
+      <link>https://dixentw.github.io/s/post/429/</link>
+      <pubDate>Fri, 29 Apr 2016 11:25:55 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/post/429/</guid>
+      <description>&lt;ul&gt;
+&lt;li&gt;重開DNS mi 的DFs&lt;/li&gt;
+&lt;li&gt;需要report?寫report的人走了QQ&lt;/li&gt;
+&lt;li&gt;where is KDD feature transfer??
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://kdd.ics.uci.edu/databases/kddcup99/kddcup99.html&#34;&gt;found&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://web.archive.org/web/20150205070216/http://nsl.cs.unb.ca/NSL-KDD/&#34;&gt;improved version&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;KDD99的training set還有testing set都齊了，目前工作重點在於建立RNN與LSTM的運算pipeline&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>242. Valid Anagram</title>
+      <link>https://dixentw.github.io/s/leetcode/anagram/</link>
+      <pubDate>Thu, 28 Apr 2016 22:43:25 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/anagram/</guid>
+      <description>&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
+
+&lt;p&gt;For example,
+s = &amp;ldquo;anagram&amp;rdquo;, t = &amp;ldquo;nagaram&amp;rdquo;, return true.&lt;br /&gt;
+s = &amp;ldquo;rat&amp;rdquo;, t = &amp;ldquo;car&amp;rdquo;, return false.&lt;/p&gt;
+
+&lt;p&gt;Note:
+You may assume the string contains only lowercase alphabets.&lt;/p&gt;
+
+&lt;p&gt;Follow up:
+What if the inputs contain unicode characters? How would you adapt your solution to such case?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一次想法：使用List, 把&lt;code&gt;s&lt;/code&gt;的characters都掃進去，然後針對&lt;code&gt;t&lt;/code&gt;的character, 一個一個去消掉Map裡面的character，最後map的size為空就是anagram。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public static boolean isAnagram(String s, String t) {
+    List&amp;lt;Character&amp;gt; allChar = new ArrayList&amp;lt;Character&amp;gt;();
+    for(int i=0; i&amp;lt;s.length();i++){
+        allChar.add(s.charAt(i));
+    }
+    for(int j=0; j&amp;lt;t.length();j++){
+    	Character c = new Character(t.charAt(j));
+    	if(allChar.contains(c)){
+    		allChar.remove(c);
+    	}else{
+    		return false;
+    	}
+    }
+    return allChar.size() == 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;別人學來的：把s, t sort過一遍，對每個s, 去找t同一個index的字元，如果有不是，就不是anagram。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public static boolean isAnagram2(String s, String t){
+	char[] scs = s.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	char[] tcs = t.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	Arrays.sort(scs);
+	Arrays.sort(tcs);
+	if(scs.length!=tcs.length){
+		return false;
+	}else{
+		for(int i=0; i&amp;lt;scs.length; i++){
+			if(scs[i]!=tcs[i]){
+				return false;
+			}
+		}
+		return true;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>1. twosum</title>
+      <link>https://dixentw.github.io/s/leetcode/twosum/</link>
+      <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/twosum/</guid>
+      <description>&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;p&gt;Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9,&lt;/p&gt;
+
+&lt;p&gt;return [0, 1].&lt;/p&gt;
+
+&lt;p&gt;UPDATE (2016/2/13):
+The return format had been changed to zero-based indices. Please read the above updated description carefully.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一次解：使用兩個index, i, j, 跑兩個for迴圈，兩兩相比後可以得出解答 O(n*n)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;static int[] twoSum(int[] nums, int target) {
+    for(int i=0; i&amp;lt;nums.length; i++){
+        for(int j=0; j&amp;lt;nums.length;j++){
+            if(i!=j&amp;amp;&amp;amp;(nums[i]+nums[j]==target)){
+                return new int[]{i+1, j+1};
+            }
+        }
+    }
+    return new int[]{999,999};
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第二次解：two pass, 先掃一遍，把value跟index記在map, 第二次掃的時候，除了自己，使用map搜尋出剩餘的數 : 要搜尋的數 = target - 目前的數&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;static int[] twoSum1(int[] nums, int target) {
+    Map&amp;lt;Integer, Integer&amp;gt; table = new HashMap&amp;lt;Integer, Integer&amp;gt;();
+    for(int i=0; i&amp;lt;nums.length; i++){
+        table.put(nums[i], i);
+    }
+    for(int i=0; i&amp;lt;nums.length;i++){
+        int search = target - nums[i];
+        Integer idx = table.get(search);
+        if(idx==null){
+            continue;
+        }else{
+            if(idx==i){
+                continue;
+            }else{
+                return new int[]{idx, i};
+            }
+        }
+    }
+    return new int[]{999,999};
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>205. Isomorphic Strings</title>
+      <link>https://dixentw.github.io/s/leetcode/isomorphicstring/</link>
+      <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/isomorphicstring/</guid>
+      <description>&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
+
+&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
+
+&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
+
+&lt;p&gt;For example,&lt;/p&gt;
+
+&lt;p&gt;Given &lt;code&gt;&amp;quot;egg&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;add&amp;quot;&lt;/code&gt;, return true.&lt;/p&gt;
+
+&lt;p&gt;Given &lt;code&gt;&amp;quot;foo&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;bar&amp;quot;&lt;/code&gt;, return false.&lt;/p&gt;
+
+&lt;p&gt;Given &lt;code&gt;&amp;quot;paper&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;title&amp;quot;&lt;/code&gt;, return true.&lt;/p&gt;
+
+&lt;p&gt;Note:
+You may assume both s and t have the same length.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;*&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

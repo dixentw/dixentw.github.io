@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Golang on 工作日誌</title>
+    <link>https://dixentw.github.io/s/categories/golang/</link>
+    <description>Recent content in Golang on 工作日誌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Apr 2016 22:49:17 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/s/categories/golang/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Golang的各種不錯知識</title>
+      <link>https://dixentw.github.io/s/page/golang/</link>
+      <pubDate>Wed, 27 Apr 2016 22:49:17 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/golang/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Golang的點點滴滴&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://brandonokert.com/2016/04/18/Json-Management-Patterns-In-Go/?utm_source=golangweekly&amp;amp;utm_medium=email#Easy_Validation&#34;&gt;Json 處理pattern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/buger/jsonparser&#34;&gt;快速json parser, API感覺比原生好用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.brnstz.com/post/143049621938/the-most-seductive-keyword&#34;&gt;concurrent code的演化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://crosbymichael.com/category/go.html&#34;&gt;Docker用的dynamic plugin&lt;/a&gt; -&amp;gt; 應該算是適合aggregator在使用（使用go 弄出javascript的execute env, 把核心算法寫在script裡面，就可以做到動態安插新的算法&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.fknsrs.biz/blog/otto-getting-started.html?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;承上，otta的介紹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://peter.bourgon.org/go-best-practices-2016/?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Go best practice&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://elithrar.github.io/article/testing-http-handlers-go/?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Restful API testing in Golang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@gianbiondi/interfaces-in-go-59c3dc9c2d98#.en5j77rk3&#34;&gt;Interface Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/mitchellh/advanced-testing-with-go?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Test Fixture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.twilio.com/blog/2016/02/how-alan-shreve-built-ngrok-with-go.html&#34;&gt;ngrok的演講&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jannewmarch.gitbooks.io/network-programming-with-go-golang-/content/&#34;&gt;git book : network programming in GO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://divan.github.io/posts/go_concurrency_visualize/&#34;&gt;go concurrent visualization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.golangpatterns.info/object-oriented/constructors&#34;&gt;go other pattern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cepave.com/go-package-vendoring/&#34;&gt;go dependency management&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closed_ch_send&#34;&gt;50 shades of golang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://javax0.wordpress.com/2016/04/27/comparing-golang-with-java/?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Golang與Java的深度比較，不是很懂日後再看&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

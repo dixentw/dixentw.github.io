@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>428 &middot; Dixen</title>
+
+  
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/poole.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde-x.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dixentw.github.io/s/touch-icon-144-precomposed.png">
+  <link href="https://dixentw.github.io/s/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+        <img src="https://www.gravatar.com/avatar/01bd6f50f32068f5daf02ff29365ce53?s=200"
+             alt="gravatar" title="Dixen">
+      
+      <h1>Dixen</h1>
+      <p class="lead">拿來記工作流水帳，或各種與軟體工作有關的事情</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/s/leetcode/">Leetcode</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/s/page/">Page</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/s/post/">Post</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/dixentw"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2016 <a href="https://dixentw.github.io/s/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">428</h1>
+    <span class="post-date">Apr 28, 2016 &middot; 1 minute read
+    
+    <br/>
+    
+    </span>
+    <ul>
+<li><p>Playing with Hugo</p>
+
+<ul>
+<li>menu for lazy blog滿好用的，在config.toml裡面下<code>SectionPagesMenu = &quot;main&quot;</code>就好了</li>
+</ul></li>
+
+<li><p>study KDD cup</p>
+
+<ul>
+<li>KDD 1999 的題目的確是判斷network intrusion沒錯，但問題是，哪邊有轉換netflow 到vector的現成程式？</li>
+</ul></li>
+
+<li><p>checking netflow agent</p>
+
+<ul>
+<li>externalize db url? shold do ? -&gt; 決定不做，會跟prod, env這個設定衝突，這樣設定太自由容易有誤</li>
+<li>to production : 出錯了，aggregate過後的data, 數字都是float64, 必須在agent 那邊防呆&hellip;
+
+<ul>
+<li>最後解法： 從源頭那邊轉資料的地方就要把packets, bytes, bpb, pps的資料變成number型態，即是如此，還是會有問題，所以addtwostore還是要做回防呆。</li>
+</ul></li>
+</ul></li>
+</ul>
+
+  </div>
+  
+</div>
+
+
+
+
+<script src="https://dixentw.github.io/s/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

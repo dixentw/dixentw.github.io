@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angular on 工作日誌</title>
+    <link>https://dixentw.github.io/s/tags/angular/</link>
+    <description>Recent content in Angular on 工作日誌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 27 Apr 2016 23:03:11 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/s/tags/angular/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Angular的各種小知識</title>
+      <link>https://dixentw.github.io/s/page/angular/</link>
+      <pubDate>Wed, 27 Apr 2016 23:03:11 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/angular/</guid>
+      <description>&lt;p&gt;直接上link, 有些還沒實作完畢~&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://amobiz.github.io/2016/04/15/angularjs-1.5-best-practices/&#34;&gt;angular 實務作法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@bluepnume/sane-scalable-angular-apps-are-tricky-but-not-impossible-lessons-learned-from-paypal-checkout-c5320558d4ef#.60rwxb98r&#34;&gt;前面一項的原文版，他翻譯過來再加自己的見解&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://roxannera.blogspot.tw/2014/01/angularjs-service-factory-provider.html&#34;&gt;factory, service, provider 的差別&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tutorials.jenkov.com/angularjs/dependency-injection.html#injecting-values-into-a-factory&#34;&gt;dependency injection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://toddmotto.com/rethinking-angular-js-controllers/&#34;&gt;rethink controller as model&lt;/a&gt; ：好像有點有趣，有時間可以先讀！&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webdeveasy.com/angularjs-data-model/&#34;&gt;建立好Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@hackupstate/improving-angular-performance-with-1-line-of-code-a1fb814a6476#.os6hz3w1h&#34;&gt;https://medium.com/@hackupstate/improving-angular-performance-with-1-line-of-code-a1fb814a6476#.os6hz3w1h&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

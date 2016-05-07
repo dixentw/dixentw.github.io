@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>299. Bulls and Cows &middot; Dixen</title>
+
+  
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/poole.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde-x.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/s/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dixentw.github.io/s/touch-icon-144-precomposed.png">
+  <link href="https://dixentw.github.io/s/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+</head>
+<body class="theme-base-0d">
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+        <img src="https://www.gravatar.com/avatar/01bd6f50f32068f5daf02ff29365ce53?s=200"
+             alt="gravatar" title="Dixen">
+      
+      <h1>Dixen</h1>
+      <p class="lead">拿來記工作流水帳，或各種與軟體工作有關的事情</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/">Blog</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/s/leetcode/">Leetcode</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/s/page/">Page</a></li>
+      
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/s/post/">Post</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="https://github.com/dixentw"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>Copyright &copy; 2016 <a href="https://dixentw.github.io/s/license/">License</a><br/>
+       Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1 class="post-title">299. Bulls and Cows</h1>
+    <p>You are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called &ldquo;bulls&rdquo;) and <code>how many digits match the secret number but locate in the wrong position (called &quot;cows&quot;)</code>. Your friend will use successive guesses and hints to eventually derive the secret number.</p>
+
+<p>For example:</p>
+
+<p>Secret number:  &ldquo;1807&rdquo;<br />
+Friend&rsquo;s guess: &ldquo;7810&rdquo;</p>
+
+<p>Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)<br />
+Write a function to return a hint according to the secret number and friend&rsquo;s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return &ldquo;1A3B&rdquo;.</p>
+
+<p>Please note that both secret number and friend&rsquo;s guess may contain duplicate digits, for example:</p>
+
+<p>Secret number:  &ldquo;1123&rdquo;<br />
+Friend&rsquo;s guess: &ldquo;0111&rdquo;</p>
+
+<p>In this case, the 1st 1 in friend&rsquo;s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return &ldquo;1A1B&rdquo;.
+You may assume that the secret number and your friend&rsquo;s guess only contain digits, and their lengths are always equal.</p>
+
+<hr />
+
+<p>最剛開始以為超級簡單的題目，被第二個提示騙到，在第一個提示中，命中一個8, 所以A是1, 沒有問題。然後其他的沒有中，是3，也沒有問題。
+然後看到第二個，一開始以為是要算沒對到，但不重複的。但這樣的話答案應該是1A2B才對。所以卡住超久的。</p>
+
+<p>仔細看題目還有其他中國人的部落格才發現，所謂的cows數目，是guess裡面錯位的所有數，有出現在secret中的，還有，如果guess裡面的錯位數有連續N個1, 但是secret中只有M個1, M&lt;N, 那還是以secret中所有的M個為主。</p>
+
+<p>以這樣的思路來看，就是我們把guess跟secret的數字跟頻率記在array, 掃一遍，拿最小的那個頻率加起來就是Cows 數目。</p>
+
+<pre><code>public String getHint(String secret, String guess) {
+    int[] secretMap = new int[10];
+    int[] guessMap = new int[10];
+    int bull=0, cow = 0;
+    for(int i=0; i&lt;secret.length(); i++){
+        if(secret.charAt(i)==guess.charAt(i)){ // if match
+            bull++;
+        }else{
+            secretMap[secret.charAt(i)-'0']++;
+            guessMap[guess.charAt(i)-'0']++;
+        }
+    }
+    // if number appeared in guess but no secret, ignore it, but appeared in secret, need add it, can be repeat, if secret repeat
+    for(int i=0; i&lt;guessMap.length; i++){
+        cow+= Math.min(secretMap[i], guessMap[i]);
+    }
+    return bull + &quot;A&quot; + cow +&quot;B&quot;;
+}
+</code></pre>
+
+  </div>
+</div>
+<script src="https://dixentw.github.io/s/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+</body>
+</html>
+

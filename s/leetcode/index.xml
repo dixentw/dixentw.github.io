@@ -1,0 +1,453 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Leetcodes on 工作日誌</title>
+    <link>https://dixentw.github.io/s/leetcode/</link>
+    <description>Recent content in Leetcodes on 工作日誌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 30 Apr 2016 09:28:52 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/s/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>292. Nim Game</title>
+      <link>https://dixentw.github.io/s/leetcode/nimgame/</link>
+      <pubDate>Sat, 30 Apr 2016 09:28:52 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/nimgame/</guid>
+      <description>&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
+
+&lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
+
+&lt;p&gt;For example, if there are 4 stones in the heap, then you will never win the game: no matter 1, 2, or 3 stones you remove, the last stone will always be removed by your friend.&lt;/p&gt;
+
+&lt;p&gt;Hint:&lt;/p&gt;
+
+&lt;p&gt;If there are 5 stones in the heap, could you figure out a way to remove the stones such that you will always be the winner?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;是4的倍數一定輸&amp;hellip;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public boolean canWinNim(int n) {
+    if(n%4!=0){
+        return true;
+    }else{
+        return false;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>100. Same Tree</title>
+      <link>https://dixentw.github.io/s/leetcode/sametree/</link>
+      <pubDate>Sat, 30 Apr 2016 09:25:21 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/sametree/</guid>
+      <description>&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
+
+&lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;遞回下去看子樹是不是一樣就好了，如果自己是leaf, 回傳true&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public boolean isSameTree(TreeNode p, TreeNode q) {
+    if(p!=null &amp;amp;&amp;amp; q!=null){
+        if(p.val!=q.val){
+            return false;
+        }else{
+            return isSameTree(p.left, q.left) &amp;amp;&amp;amp; isSameTree(p.right, q.right);
+        }
+    }else if(p==null &amp;amp;&amp;amp; q==null){
+        return true;
+    }else{
+        return false;
+    }
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>49. Group Anagrams</title>
+      <link>https://dixentw.github.io/s/leetcode/groupanagram/</link>
+      <pubDate>Sat, 30 Apr 2016 09:15:42 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/groupanagram/</guid>
+      <description>&lt;p&gt;Given an array of strings, group anagrams together.&lt;/p&gt;
+
+&lt;p&gt;For example, given: &lt;code&gt;[&amp;quot;eat&amp;quot;, &amp;quot;tea&amp;quot;, &amp;quot;tan&amp;quot;, &amp;quot;ate&amp;quot;, &amp;quot;nat&amp;quot;, &amp;quot;bat&amp;quot;]&lt;/code&gt;,
+Return:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[
+  [&amp;quot;ate&amp;quot;, &amp;quot;eat&amp;quot;,&amp;quot;tea&amp;quot;],
+  [&amp;quot;nat&amp;quot;,&amp;quot;tan&amp;quot;],
+  [&amp;quot;bat&amp;quot;]
+]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Note:
+For the return value, each inner list&amp;rsquo;s elements must follow the lexicographic order.
+All inputs will be in lower-case.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;解一：使用前面#242發展的演算法，用兩個index : i, j, 第一個字的時候，掃後面的字是不是anagram，一樣的就放進同一個字的arraylist, 此法一直過不了時間限制&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public static boolean isAnagram2(String s, String t){
+	char[] scs = s.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	char[] tcs = t.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	Arrays.sort(scs);
+	Arrays.sort(tcs);
+	if(scs.length!=tcs.length){
+		return false;
+	}else{
+		for(int i=0; i&amp;lt;scs.length; i++){
+			if(scs[i]!=tcs[i]){
+				return  false;
+			}
+		}
+		return true;
+	}
+}
+
+public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] strs) {
+    List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; result = new ArrayList&amp;lt;List&amp;lt;String&amp;gt;&amp;gt;();
+	for(int i=0; i&amp;lt;strs.length;i++){
+		List&amp;lt;String&amp;gt; inner = new ArrayList&amp;lt;String&amp;gt;();
+		if(strs[i]!=&amp;quot;&amp;quot;){
+			inner.add(strs[i]);
+			for(int j=0 ;j&amp;lt;strs.length;j++){
+				if(i!=j &amp;amp;&amp;amp; isAnagram2(strs[i],strs[j])){
+					inner.add(strs[j]);
+					strs[j] = &amp;quot;&amp;quot;;
+				}
+			}
+			result.add(inner);
+		}
+	}
+	return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;解二：把字先sort過，放進map, 如果已經存在了，代表有anagram了，把自己的index存進value的list即可。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] strs) {
+    List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; result = new ArrayList&amp;lt;List&amp;lt;String&amp;gt;&amp;gt;();
+	if(strs.length==0){
+		return result;
+	}
+	Map&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt; table = new HashMap&amp;lt;String, List&amp;lt;Integer&amp;gt;&amp;gt;();
+	for(int i=0;i&amp;lt;strs.length;i++){
+		char[] c = strs[i].replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+		Arrays.sort(c);
+		String tmpSorted = new String(c);
+		List&amp;lt;Integer&amp;gt; index = table.get(tmpSorted);
+		if(index == null){
+			index = new ArrayList&amp;lt;Integer&amp;gt;();
+			index.add(i);
+			table.put(tmpSorted, index);
+		}else{
+			index.add(i);
+		}
+	}
+	for(String k : table.keySet()){
+		List&amp;lt;String&amp;gt; inner = new ArrayList&amp;lt;String&amp;gt;();
+		List&amp;lt;Integer&amp;gt; idx = table.get(k);
+		for(Integer i : idx){
+			inner.add(strs[i]);
+		}
+		Collections.sort(inner);
+		result.add(inner);
+	}
+	return result;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;能夠改得更快嗎？&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>242. Valid Anagram</title>
+      <link>https://dixentw.github.io/s/leetcode/anagram/</link>
+      <pubDate>Thu, 28 Apr 2016 22:43:25 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/anagram/</guid>
+      <description>&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
+
+&lt;p&gt;For example,
+s = &amp;ldquo;anagram&amp;rdquo;, t = &amp;ldquo;nagaram&amp;rdquo;, return true.&lt;br /&gt;
+s = &amp;ldquo;rat&amp;rdquo;, t = &amp;ldquo;car&amp;rdquo;, return false.&lt;/p&gt;
+
+&lt;p&gt;Note:
+You may assume the string contains only lowercase alphabets.&lt;/p&gt;
+
+&lt;p&gt;Follow up:
+What if the inputs contain unicode characters? How would you adapt your solution to such case?&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一次想法：使用List, 把&lt;code&gt;s&lt;/code&gt;的characters都掃進去，然後針對&lt;code&gt;t&lt;/code&gt;的character, 一個一個去消掉Map裡面的character，最後map的size為空就是anagram。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public static boolean isAnagram(String s, String t) {
+    List&amp;lt;Character&amp;gt; allChar = new ArrayList&amp;lt;Character&amp;gt;();
+    for(int i=0; i&amp;lt;s.length();i++){
+        allChar.add(s.charAt(i));
+    }
+    for(int j=0; j&amp;lt;t.length();j++){
+    	Character c = new Character(t.charAt(j));
+    	if(allChar.contains(c)){
+    		allChar.remove(c);
+    	}else{
+    		return false;
+    	}
+    }
+    return allChar.size() == 0;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;別人學來的：把s, t sort過一遍，對每個s, 去找t同一個index的字元，如果有不是，就不是anagram。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public static boolean isAnagram2(String s, String t){
+	char[] scs = s.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	char[] tcs = t.replaceAll(&amp;quot;\\s&amp;quot;, &amp;quot;&amp;quot;).toCharArray();
+	Arrays.sort(scs);
+	Arrays.sort(tcs);
+	if(scs.length!=tcs.length){
+		return false;
+	}else{
+		for(int i=0; i&amp;lt;scs.length; i++){
+			if(scs[i]!=tcs[i]){
+				return false;
+			}
+		}
+		return true;
+	}
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>1. twosum</title>
+      <link>https://dixentw.github.io/s/leetcode/twosum/</link>
+      <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/twosum/</guid>
+      <description>&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.
+You may assume that each input would have exactly one solution.&lt;/p&gt;
+
+&lt;p&gt;Example:&lt;/p&gt;
+
+&lt;p&gt;Given nums = [2, 7, 11, 15], target = 9,
+Because nums[0] + nums[1] = 2 + 7 = 9,&lt;/p&gt;
+
+&lt;p&gt;return [0, 1].&lt;/p&gt;
+
+&lt;p&gt;UPDATE (2016/2/13):
+The return format had been changed to zero-based indices. Please read the above updated description carefully.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第一次解：使用兩個index, i, j, 跑兩個for迴圈，兩兩相比後可以得出解答 O(n*n)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;static int[] twoSum(int[] nums, int target) {
+    for(int i=0; i&amp;lt;nums.length; i++){
+        for(int j=0; j&amp;lt;nums.length;j++){
+            if(i!=j&amp;amp;&amp;amp;(nums[i]+nums[j]==target)){
+                return new int[]{i+1, j+1};
+            }
+        }
+    }
+    return new int[]{999,999};
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;第二次解：two pass, 先掃一遍，把value跟index記在map, 第二次掃的時候，除了自己，使用map搜尋出剩餘的數 : 要搜尋的數 = target - 目前的數&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;static int[] twoSum1(int[] nums, int target) {
+    Map&amp;lt;Integer, Integer&amp;gt; table = new HashMap&amp;lt;Integer, Integer&amp;gt;();
+    for(int i=0; i&amp;lt;nums.length; i++){
+        table.put(nums[i], i);
+    }
+    for(int i=0; i&amp;lt;nums.length;i++){
+        int search = target - nums[i];
+        Integer idx = table.get(search);
+        if(idx==null){
+            continue;
+        }else{
+            if(idx==i){
+                continue;
+            }else{
+                return new int[]{idx, i};
+            }
+        }
+    }
+    return new int[]{999,999};
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>205. Isomorphic Strings</title>
+      <link>https://dixentw.github.io/s/leetcode/isomorphicstring/</link>
+      <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/isomorphicstring/</guid>
+      <description>&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
+
+&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
+
+&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
+
+&lt;p&gt;For example,&lt;/p&gt;
+
+&lt;p&gt;Given &lt;code&gt;&amp;quot;egg&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;add&amp;quot;&lt;/code&gt;, return true.&lt;/p&gt;
+
+&lt;p&gt;Given &lt;code&gt;&amp;quot;foo&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;bar&amp;quot;&lt;/code&gt;, return false.&lt;/p&gt;
+
+&lt;p&gt;Given &lt;code&gt;&amp;quot;paper&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;title&amp;quot;&lt;/code&gt;, return true.&lt;/p&gt;
+
+&lt;p&gt;Note:
+You may assume both s and t have the same length.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;*&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>290. Word Pattern</title>
+      <link>https://dixentw.github.io/s/leetcode/wordpattern/</link>
+      <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/wordpattern/</guid>
+      <description>&lt;p&gt;Given a &lt;code&gt;pattern&lt;/code&gt; and a string &lt;code&gt;str&lt;/code&gt;, find if &lt;code&gt;str&lt;/code&gt; follows the same pattern.&lt;/p&gt;
+
+&lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.&lt;/p&gt;
+
+&lt;p&gt;&lt;em&gt;Examples:&lt;/em&gt;&lt;/p&gt;
+
+&lt;p&gt;pattern = &amp;ldquo;abba&amp;rdquo;, str = &amp;ldquo;dog cat cat dog&amp;rdquo; should return true.&lt;br /&gt;
+pattern = &amp;ldquo;abba&amp;rdquo;, str = &amp;ldquo;dog cat cat fish&amp;rdquo; should return false.&lt;br /&gt;
+pattern = &amp;ldquo;aaaa&amp;rdquo;, str = &amp;ldquo;dog cat cat dog&amp;rdquo; should return false.&lt;br /&gt;
+pattern = &amp;ldquo;abba&amp;rdquo;, str = &amp;ldquo;dog dog dog dog&amp;rdquo; should return false.&lt;/p&gt;
+
+&lt;p&gt;Notes:&lt;/p&gt;
+
+&lt;p&gt;You may assume pattern contains only lowercase letters, and str contains lowercase letters separated by a single space.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ul&gt;
+&lt;li&gt;word 對應到 pattern, 一個word 對應一個char, 使用map, tricky part: 不管使用Char -&amp;gt; Word or Word -&amp;gt; Char, 都要尋找是否已經出現過，不然會漏，回傳true, 所以在insert進table之前，要清楚，對應pattern的word有沒有已經出現在table的value裡面了。&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;public boolean wordPattern(String pattern, String str) {
+    String[] words = str.split(&amp;quot; &amp;quot;);
+    if(words.length!= pattern.length()){
+        return false;
+    }
+    Map&amp;lt;Character, String&amp;gt; table = new HashMap&amp;lt;&amp;gt;();
+    for(int i=0; i&amp;lt;pattern.length(); i++){
+        String word = table.get(pattern.charAt(i));
+        if(word==null){//掃一遍之前的
+            if(table.containsValue(words[i])){
+                return false;
+            }
+            table.put(pattern.charAt(i), words[i]);
+        }else{
+            if(!word.equals(words[i])){
+                return false;
+            }
+        }
+    }
+    return true;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>299. Bulls and Cows</title>
+      <link>https://dixentw.github.io/s/leetcode/bullandcow/</link>
+      <pubDate>Thu, 28 Apr 2016 21:27:21 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/leetcode/bullandcow/</guid>
+      <description>&lt;p&gt;You are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called &amp;ldquo;bulls&amp;rdquo;) and &lt;code&gt;how many digits match the secret number but locate in the wrong position (called &amp;quot;cows&amp;quot;)&lt;/code&gt;. Your friend will use successive guesses and hints to eventually derive the secret number.&lt;/p&gt;
+
+&lt;p&gt;For example:&lt;/p&gt;
+
+&lt;p&gt;Secret number:  &amp;ldquo;1807&amp;rdquo;&lt;br /&gt;
+Friend&amp;rsquo;s guess: &amp;ldquo;7810&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;Hint: 1 bull and 3 cows. (The bull is 8, the cows are 0, 1 and 7.)&lt;br /&gt;
+Write a function to return a hint according to the secret number and friend&amp;rsquo;s guess, use A to indicate the bulls and B to indicate the cows. In the above example, your function should return &amp;ldquo;1A3B&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;Please note that both secret number and friend&amp;rsquo;s guess may contain duplicate digits, for example:&lt;/p&gt;
+
+&lt;p&gt;Secret number:  &amp;ldquo;1123&amp;rdquo;&lt;br /&gt;
+Friend&amp;rsquo;s guess: &amp;ldquo;0111&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;In this case, the 1st 1 in friend&amp;rsquo;s guess is a bull, the 2nd or 3rd 1 is a cow, and your function should return &amp;ldquo;1A1B&amp;rdquo;.
+You may assume that the secret number and your friend&amp;rsquo;s guess only contain digits, and their lengths are always equal.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;最剛開始以為超級簡單的題目，被第二個提示騙到，在第一個提示中，命中一個8, 所以A是1, 沒有問題。然後其他的沒有中，是3，也沒有問題。
+然後看到第二個，一開始以為是要算沒對到，但不重複的。但這樣的話答案應該是1A2B才對。所以卡住超久的。&lt;/p&gt;
+
+&lt;p&gt;仔細看題目還有其他中國人的部落格才發現，所謂的cows數目，是guess裡面錯位的所有數，有出現在secret中的，還有，如果guess裡面的錯位數有連續N個1, 但是secret中只有M個1, M&amp;lt;N, 那還是以secret中所有的M個為主。&lt;/p&gt;
+
+&lt;p&gt;以這樣的思路來看，就是我們把guess跟secret的數字跟頻率記在array, 掃一遍，拿最小的那個頻率加起來就是Cows 數目。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public String getHint(String secret, String guess) {
+    int[] secretMap = new int[10];
+    int[] guessMap = new int[10];
+    int bull=0, cow = 0;
+    for(int i=0; i&amp;lt;secret.length(); i++){
+        if(secret.charAt(i)==guess.charAt(i)){ // if match
+            bull++;
+        }else{
+            secretMap[secret.charAt(i)-&#39;0&#39;]++;
+            guessMap[guess.charAt(i)-&#39;0&#39;]++;
+        }
+    }
+    // if number appeared in guess but no secret, ignore it, but appeared in secret, need add it, can be repeat, if secret repeat
+    for(int i=0; i&amp;lt;guessMap.length; i++){
+        cow+= Math.min(secretMap[i], guessMap[i]);
+    }
+    return bull + &amp;quot;A&amp;quot; + cow +&amp;quot;B&amp;quot;;
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,253 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Pages on 工作日誌</title>
+    <link>https://dixentw.github.io/s/page/</link>
+    <description>Recent content in Pages on 工作日誌</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 07 May 2016 15:28:03 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/s/page/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>java 小知識</title>
+      <link>https://dixentw.github.io/s/page/java/</link>
+      <pubDate>Sat, 07 May 2016 15:28:03 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/java/</guid>
+      <description>
+
+&lt;h3 id=&#34;thread-things:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Thread Things&lt;/h3&gt;
+
+&lt;h3 id=&#34;data-structure:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Data Structure&lt;/h3&gt;
+
+&lt;p&gt;&lt;strong&gt;Hash&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>react與js的各種小知識</title>
+      <link>https://dixentw.github.io/s/page/react/</link>
+      <pubDate>Wed, 04 May 2016 10:15:22 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/react/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://eddychang.me/blog/javascript/78-react-style-guide-zhtw.html&#34;&gt;React Style Guild 中文&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://camjackson.net/post/9-things-every-reactjs-beginner-should-know&#34;&gt;Tips for beginner&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://rhadow.github.io/2015/07/30/beginner-redux/&#34;&gt;redux入門&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://redux.js.org&#34;&gt;redux官方文件&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://dosudo.com/2015/10/18/react-生態系介紹-by-mr-friday/&#34;&gt;react生態系&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/mattermost/platform&#34;&gt;可以研讀的project&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://blog.formidable.com/react-inline-styles-and-the-future-of-css-cbc85e74bc42#.ecp8k6uck&#34;&gt;inline style&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Javascript&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://pofolio.cc/2015/03/09/javascript-how-to-promise-well/&#34;&gt;Promise well&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://fred-zone.blogspot.tw/2015/05/javascript.html&#34;&gt;js fog迷霧啊～～&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://llh911001.gitbooks.io/mostly-adequate-guide-chinese/content/ch2.html&#34;&gt;寫得不錯的javascript functional 指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://es6.ruanyifeng.com/#docs/async&#34;&gt;ES6&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Front-End&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://frontendmasters.gitbooks.io/front-end-handbook/content/practice/types-of-front-end-dev.html&#34;&gt;front-end handbook&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.csdn.net/zhbhun/article/details/47208885&#34;&gt;webpack學習筆記&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.restapitutorial.com/lessons/restquicktips.html&#34;&gt;rest api 指南&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://ww12.f2eclass.com&#34;&gt;front-end課程&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;MISC&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.hackingwithswift.com/read/31/overview&#34;&gt;IOS pratices&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://marc.helbling.fr/2014/09/practical-git-introduction&#34;&gt;GIT Pratical Guide &lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.alexkras.com/19-git-tips-for-everyday-use/&#34;&gt;every day git tips&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nexusguard Settings</title>
+      <link>https://dixentw.github.io/s/page/nxgsetting/</link>
+      <pubDate>Fri, 29 Apr 2016 17:49:51 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/nxgsetting/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;把有常回來找的東西貼在這裡:&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;常用指令：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;LDAP密碼:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;最複雜的那個Csxxxx)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://serversforhackers.com/video/process-monitoring-with-upstart&#34;&gt;Upstart reference&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Nexusguard Project TODO</title>
+      <link>https://dixentw.github.io/s/page/todonxg/</link>
+      <pubDate>Fri, 29 Apr 2016 11:31:05 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/todonxg/</guid>
+      <description>&lt;p&gt;Few things to do here.&lt;/p&gt;
+
+&lt;p&gt;&lt;strong&gt;Platform improvement&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;google cluster的etcd? 想知道寫入速度有多快可以sync&lt;/li&gt;
+&lt;li&gt;ssdb client reconnect 加強？How?&lt;/li&gt;
+&lt;li&gt;SSDB sync 還要走嗎？&lt;/li&gt;
+&lt;li&gt;G-Center Monitor refactor到不會crash, 可以一直看？&lt;/li&gt;
+&lt;li&gt;redis go client replace ssdb client?
+
+&lt;ul&gt;
+&lt;li&gt;已經沒有reconnect的功能了&amp;hellip;&lt;/li&gt;
+&lt;li&gt;zeromq可以解這個問題嗎？&lt;/li&gt;
+&lt;li&gt;DF 4003可以通 :) , sadly TD, DPI 4003不行&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;DNS project&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;User ACL: need to do?
+
+&lt;ol&gt;
+&lt;li&gt;Add new permission:AdminReadOnly&lt;/li&gt;
+&lt;li&gt;Add new permission:AdminManager -&amp;gt; 開一個帳號，如果是這種User, 不要load zone file, 只給他管帳號的功能就好了&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;OP project&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;op panel refactor
+
+&lt;ul&gt;
+&lt;li&gt;$resource, model translation&lt;/li&gt;
+&lt;li&gt;chart section code&lt;/li&gt;
+&lt;li&gt;canvas chart (improvement)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Job Related</title>
+      <link>https://dixentw.github.io/s/page/job_related/</link>
+      <pubDate>Thu, 28 Apr 2016 10:24:06 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/job_related/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Interview&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/hanksudo/5873678&#34;&gt;前端工程師問題集&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.interviewcake.com/article/python/coding-interview-tips&#34;&gt;coding interview tips&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=qlUhDbJ_zGo&#34;&gt;google 面試題講解vedio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://softnshare.wordpress.com/2016/02/21/程式語言面試考題集錦/&#34;&gt;各種程式語言面試&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.hiredintech.com/system-design&#34;&gt;System Desgin&lt;/a&gt;，本site還有其他的題目可以看一下&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ptt.cc/bbs/Oversea_Job/M.1461635151.A.466.html&#34;&gt;真好文, from ptt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.1point3acres.com/bbs/&#34;&gt;一畝三分地&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://e-jelly.blogspot.tw/2016/01/blog-post.html?view=classic&#34;&gt;日常練習&lt;/a&gt;
+
+&lt;ul&gt;
+&lt;li&gt;程式語言的實作 - amazon北京&lt;/li&gt;
+&lt;li&gt;資料結構/基礎演算法 - 365.com, amazon&lt;/li&gt;
+&lt;li&gt;leetcode解題 - almost every company&lt;/li&gt;
+&lt;li&gt;系統設計 - spotify, 365.com&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.mitbbs.com/article_t1/JobHunting/32777529_0_1.html&#34;&gt;牛人的System desgin 總結&lt;/a&gt;
+&lt;strong&gt;leetcode的blog, 參考一下人家的寫法&lt;/strong&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;https://leetcodenotes.wordpress.com/page/11/&#34;&gt;第一個&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://blog.csdn.net/u011095253/article/details/9158397&#34;&gt;第二個&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;&lt;a href=&#34;http://www.cnblogs.com/grandyang/p/4606334.html&#34;&gt;第三個&lt;/a&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Soft Skill&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.freecodecamp.com/how-to-level-up-as-a-developer-87344584777c#.3ryrrixfm&#34;&gt;How to level up as developer&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.inside.com.tw/2016/02/24/studying-after-work&#34;&gt;自學（有幾堂課不錯）&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@akosma/being-a-developer-after-40-3c5dd112210c#.7mftr0iu7&#34;&gt;生涯指導&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;strong&gt;Job site to find remote work&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://webwork.io&#34;&gt;webwork&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/kaizensoze/remote-freelance-jobs&#34;&gt;remote freelencer job&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.freelancerejobs.com&#34;&gt;freelancerejobs&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://skillcrush.com/2014/10/10/sites-finding-remote-work/&#34;&gt;best 25 sites&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Angular的各種小知識</title>
+      <link>https://dixentw.github.io/s/page/angular/</link>
+      <pubDate>Wed, 27 Apr 2016 23:03:11 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/angular/</guid>
+      <description>&lt;p&gt;直接上link, 有些還沒實作完畢~&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://amobiz.github.io/2016/04/15/angularjs-1.5-best-practices/&#34;&gt;angular 實務作法&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@bluepnume/sane-scalable-angular-apps-are-tricky-but-not-impossible-lessons-learned-from-paypal-checkout-c5320558d4ef#.60rwxb98r&#34;&gt;前面一項的原文版，他翻譯過來再加自己的見解&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://roxannera.blogspot.tw/2014/01/angularjs-service-factory-provider.html&#34;&gt;factory, service, provider 的差別&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://tutorials.jenkov.com/angularjs/dependency-injection.html#injecting-values-into-a-factory&#34;&gt;dependency injection&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://toddmotto.com/rethinking-angular-js-controllers/&#34;&gt;rethink controller as model&lt;/a&gt; ：好像有點有趣，有時間可以先讀！&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.webdeveasy.com/angularjs-data-model/&#34;&gt;建立好Model&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@hackupstate/improving-angular-performance-with-1-line-of-code-a1fb814a6476#.os6hz3w1h&#34;&gt;https://medium.com/@hackupstate/improving-angular-performance-with-1-line-of-code-a1fb814a6476#.os6hz3w1h&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Golang的各種不錯知識</title>
+      <link>https://dixentw.github.io/s/page/golang/</link>
+      <pubDate>Wed, 27 Apr 2016 22:49:17 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/s/page/golang/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;Golang的點點滴滴&lt;/strong&gt;&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;a href=&#34;http://brandonokert.com/2016/04/18/Json-Management-Patterns-In-Go/?utm_source=golangweekly&amp;amp;utm_medium=email#Easy_Validation&#34;&gt;Json 處理pattern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/buger/jsonparser&#34;&gt;快速json parser, API感覺比原生好用&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://blog.brnstz.com/post/143049621938/the-most-seductive-keyword&#34;&gt;concurrent code的演化&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://crosbymichael.com/category/go.html&#34;&gt;Docker用的dynamic plugin&lt;/a&gt; -&amp;gt; 應該算是適合aggregator在使用（使用go 弄出javascript的execute env, 把核心算法寫在script裡面，就可以做到動態安插新的算法&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.fknsrs.biz/blog/otto-getting-started.html?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;承上，otta的介紹&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://peter.bourgon.org/go-best-practices-2016/?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Go best practice&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://elithrar.github.io/article/testing-http-handlers-go/?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Restful API testing in Golang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://medium.com/@gianbiondi/interfaces-in-go-59c3dc9c2d98#.en5j77rk3&#34;&gt;Interface Example&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://speakerdeck.com/mitchellh/advanced-testing-with-go?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Test Fixture&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.twilio.com/blog/2016/02/how-alan-shreve-built-ngrok-with-go.html&#34;&gt;ngrok的演講&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://jannewmarch.gitbooks.io/network-programming-with-go-golang-/content/&#34;&gt;git book : network programming in GO&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://divan.github.io/posts/go_concurrency_visualize/&#34;&gt;go concurrent visualization&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.golangpatterns.info/object-oriented/constructors&#34;&gt;go other pattern&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://cepave.com/go-package-vendoring/&#34;&gt;go dependency management&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://devs.cloudimmunity.com/gotchas-and-common-mistakes-in-go-golang/index.html#closed_ch_send&#34;&gt;50 shades of golang&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://javax0.wordpress.com/2016/04/27/comparing-golang-with-java/?utm_source=golangweekly&amp;amp;utm_medium=email&#34;&gt;Golang與Java的深度比較，不是很懂日後再看&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

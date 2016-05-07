@@ -1,0 +1,159 @@
+<div class="list">
+  <!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="generator" content="Hugo 0.15" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <link rel='stylesheet' href='//fonts.googleapis.com/css?family=Open+Sans|Marcellus+SC'>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/solarized_dark.min.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-hugo-site.com/css/styles.css">
+    <link rel="stylesheet" href="http://replace-this-with-your-hugo-site.com/css/custom.css">
+    <link rel="alternate" type="application/rss+xml" title="RSS" href="http://replace-this-with-your-hugo-site.com//index.xml">
+
+    
+    <title>Tags - 工作日誌</title>
+    <meta property='og:title' content="Tags - 工作日誌">
+    <meta property="og:type" content="article">
+    
+
+    <meta property="og:url" content="http://replace-this-with-your-hugo-site.com/tags/">
+    
+    
+
+  </head>
+
+  <body>
+
+    <header class="site">
+      <div class="title"><a href="http://replace-this-with-your-hugo-site.com/">工作日誌</a></div>
+    </header>
+
+    <div class="container site">
+
+
+  <div class="row">
+    <div class="col-sm-9">
+
+      <header class="title"><h1>Tags</h1></header>
+
+      
+
+    </div>
+
+    <div class="col-sm-3">
+      <aside class="site">
+
+  
+
+  
+
+  <div class="section">
+    <header><div class="title">LatestPosts</div></header>
+    <div class="content">
+      
+      <div class="sm"><article class="li">
+  <a href="http://replace-this-with-your-hugo-site.com/post/test/" class="clearfix">
+    
+    <div class="detail">
+      <time>Wed, Apr 27, 2016</time>
+      <h2 class="title">427</h2>
+      <div class="summary">netflow agent errors: SSDB connection error, can it recover? Data error : should process, but need to verify less than 2 files in folder too many open files -&gt; 有可能是ssdb connection沒有關，現在每次cron啟動後會new一個connection KDD cup finding all netflow data usage 資料: netflow, access log, 收集的資料先分類 1. 先試 RNN + LSTM 1. K-means Keras Theano TehsorFlow KDD cup已經有現成了，先照這個流程做 1qaz2wsx3edc</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+      <div class="sm"><article class="li">
+  <a href="http://replace-this-with-your-hugo-site.com/post/426/" class="clearfix">
+    
+    <div class="detail">
+      <time>Tue, Apr 26, 2016</time>
+      <h2 class="title">426</h2>
+      <div class="summary">Main task of this day : check netflow agent produce the same result of DNS netflow aggregator. BUG : netflow, too many open files -&gt; tracking down the line hour aggregator on global 為什麼會不一致： matis版本的nowint為前三分鐘，但是hour是當下的分鐘跑出來的hour, 所以有shift</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+      <div class="sm"><article class="li">
+  <a href="http://replace-this-with-your-hugo-site.com/post/421/" class="clearfix">
+    
+    <div class="detail">
+      <time>Thu, Apr 21, 2016</time>
+      <h2 class="title">421</h2>
+      <div class="summary">NP-WEB customization: UAT -&gt; disable fetch series data periodically PRD -&gt; disabe TD b/w list and DPI b/w list, disable outbound in main.js</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+      <div class="sm"><article class="li">
+  <a href="http://replace-this-with-your-hugo-site.com/post/226/" class="clearfix">
+    
+    <div class="detail">
+      <time>Fri, Feb 26, 2016</time>
+      <h2 class="title">226</h2>
+      <div class="summary">TODO 下午share add user to legacy portal operation 實作一直打DB的程式 4002 site check meta read meta的程式今天無法讀取asia 的meta, root cause ? 回復Chris Mail &#8211; done IDEAS : ssdb cluster monitor 工具 legacy portal mapping tool page agent 修復cron, 如果看到上次cron沒執行，重開cron proxy portal 的text input 要trim now we have troubled EU -&gt; ASIA 的SSDB 是EU 的slave, EU的更新無法推送至Asia的原因為: Asia連socket到EU後，不知道為什麼之後的sync process就不再作動，有可能是socket有出問題，應還是網路問題，但這需要噴log出來，目前只能猜測是這樣 &nbsp; 今天早上發現asia的meta掛點，但ssdb居然又撐了一下。估計是ssdb update無法寫入meta，導致updates都塞在記憶體裡面，最後掛點。</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+      <div class="sm"><article class="li">
+  <a href="http://replace-this-with-your-hugo-site.com/post/225/" class="clearfix">
+    
+    <div class="detail">
+      <time>Thu, Feb 25, 2016</time>
+      <h2 class="title">225</h2>
+      <div class="summary">Problems: 有四台Master to Master的機器的話，因為operation的原因，我們不可能全部一起shutdown再一起開起來，一定是輪流開，在這樣的情況下是否會有影響？ 新機器先開起來，舊機器再restart有否影響？ ToDo: 繼續研究ssdb sync 流程 問題： copy/mirror的write有沒有加入binlog? How binlog count ? -&gt; 有寫入就會count last_seq -&gt;針對每個slave, 會記錄對每個slave的max_seq min_seq, 有cluster狀態的話會從0-&gt;1 max_seq, 目前自己的write count 實作會一直打DB的程式 實作可以窺看meta的程式 &#8211; done 現在有問題的production site： 4001 : EU的資料無法同步到Asia, US; Asia, US可以同步到EU，先觀察Meta的counter與其他的人的info資料 今天觀察結果：同步正常，可能要找EU log看看是否去年剛setup好的時候真的有問題。 4002 site, 情況一樣，但meta有清掉，不見了</div>
+    </div>
+  </a>
+</article>
+</div>
+      
+    </div>
+  </div>
+
+  
+  <div class="section taxonomies">
+    <header><div class="title">category</div></header>
+    <div class="content">
+      
+    </div>
+  </div>
+  
+  <div class="section taxonomies">
+    <header><div class="title">tag</div></header>
+    <div class="content">
+      
+    </div>
+  </div>
+  
+
+</aside>
+
+    </div>
+
+  </div>
+      </div>
+
+    <footer class="site">
+      <p>&copy; 2016 工作日誌</p>
+      <p>Powered by <a href="http://gohugo.io" target="_blank" rel="nofollow">Hugo</a>, Theme <a href="https://github.com/dim0627/hugo_theme_robust" target="_blank" rel="nofollow">robust</a> designed by <a href="http://yet.unresolved.xyz" target="_blank" rel="nofollow">Daisuke Tsuji</a></p>
+    </footer>
+
+    <script src="//code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+
+  </body>
+</html>
+
+</div>
