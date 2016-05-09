@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on 工作日誌</title>
-    <link>https://dixentw.github.io/post/</link>
+    <link>https://dixentw.github.io/s/post/</link>
     <description>Recent content in Posts on 工作日誌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 06 May 2016 10:44:08 +0800</lastBuildDate>
-    <atom:link href="https://dixentw.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dixentw.github.io/s/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>506</title>
-      <link>https://dixentw.github.io/post/506/</link>
+      <link>https://dixentw.github.io/s/post/506/</link>
       <pubDate>Fri, 06 May 2016 10:44:08 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/506/</guid>
+      <guid>https://dixentw.github.io/s/post/506/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;SimpleRNN做不出來啊~~
 
@@ -33,10 +33,10 @@
     
     <item>
       <title>505</title>
-      <link>https://dixentw.github.io/post/505/</link>
+      <link>https://dixentw.github.io/s/post/505/</link>
       <pubDate>Thu, 05 May 2016 10:16:15 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/505/</guid>
+      <guid>https://dixentw.github.io/s/post/505/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;find a bug : OP panel, TD module
 
@@ -50,10 +50,10 @@
     
     <item>
       <title>504</title>
-      <link>https://dixentw.github.io/post/504/</link>
+      <link>https://dixentw.github.io/s/post/504/</link>
       <pubDate>Wed, 04 May 2016 10:00:38 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/504/</guid>
+      <guid>https://dixentw.github.io/s/post/504/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;run keras of RNN, using default parameters, should understand &lt;code&gt;fit()&lt;/code&gt; training output means&lt;/p&gt;&lt;/li&gt;
 
@@ -75,10 +75,10 @@
     
     <item>
       <title>503</title>
-      <link>https://dixentw.github.io/post/503/</link>
+      <link>https://dixentw.github.io/s/post/503/</link>
       <pubDate>Tue, 03 May 2016 11:25:55 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/503/</guid>
+      <guid>https://dixentw.github.io/s/post/503/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Setting up keras, run on Theano&lt;/p&gt;
 
@@ -110,10 +110,10 @@
     
     <item>
       <title>429</title>
-      <link>https://dixentw.github.io/post/429/</link>
+      <link>https://dixentw.github.io/s/post/429/</link>
       <pubDate>Fri, 29 Apr 2016 11:25:55 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/429/</guid>
+      <guid>https://dixentw.github.io/s/post/429/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;重開DNS mi 的DFs&lt;/li&gt;
 &lt;li&gt;需要report?寫report的人走了QQ&lt;/li&gt;
@@ -130,10 +130,10 @@
     
     <item>
       <title>428</title>
-      <link>https://dixentw.github.io/post/428/</link>
+      <link>https://dixentw.github.io/s/post/428/</link>
       <pubDate>Thu, 28 Apr 2016 09:43:54 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/428/</guid>
+      <guid>https://dixentw.github.io/s/post/428/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Playing with Hugo&lt;/p&gt;
 
@@ -163,10 +163,10 @@
     
     <item>
       <title>427</title>
-      <link>https://dixentw.github.io/post/427/</link>
+      <link>https://dixentw.github.io/s/post/427/</link>
       <pubDate>Wed, 27 Apr 2016 16:50:06 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/427/</guid>
+      <guid>https://dixentw.github.io/s/post/427/</guid>
       <description>&lt;p&gt;&lt;strong&gt;netflow agent errors:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -202,10 +202,10 @@
     
     <item>
       <title>426</title>
-      <link>https://dixentw.github.io/post/426/</link>
+      <link>https://dixentw.github.io/s/post/426/</link>
       <pubDate>Tue, 26 Apr 2016 17:04:17 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/426/</guid>
+      <guid>https://dixentw.github.io/s/post/426/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;Main task of this day :
 
@@ -224,10 +224,10 @@
     
     <item>
       <title>421</title>
-      <link>https://dixentw.github.io/post/421/</link>
+      <link>https://dixentw.github.io/s/post/421/</link>
       <pubDate>Thu, 21 Apr 2016 17:07:15 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/421/</guid>
+      <guid>https://dixentw.github.io/s/post/421/</guid>
       <description>&lt;p&gt;NP-WEB customization:&lt;/p&gt;
 
 &lt;ol&gt;
@@ -239,10 +239,10 @@
     
     <item>
       <title>301</title>
-      <link>https://dixentw.github.io/post/301/</link>
+      <link>https://dixentw.github.io/s/post/301/</link>
       <pubDate>Tue, 01 Mar 2016 11:54:49 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/301/</guid>
+      <guid>https://dixentw.github.io/s/post/301/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;early in the morning… Google VM cannot access, things that I do change root disk size in web console&lt;/p&gt;
 
@@ -280,10 +280,10 @@ ssdb本身長連結 -&amp;gt; debug??&lt;/p&gt;
     
     <item>
       <title>226</title>
-      <link>https://dixentw.github.io/post/226/</link>
+      <link>https://dixentw.github.io/s/post/226/</link>
       <pubDate>Fri, 26 Feb 2016 17:11:09 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/226/</guid>
+      <guid>https://dixentw.github.io/s/post/226/</guid>
       <description>&lt;p&gt;&lt;strong&gt;TODO&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -315,10 +315,10 @@ ssdb本身長連結 -&amp;gt; debug??&lt;/p&gt;
     
     <item>
       <title>225</title>
-      <link>https://dixentw.github.io/post/225/</link>
+      <link>https://dixentw.github.io/s/post/225/</link>
       <pubDate>Thu, 25 Feb 2016 17:09:35 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/225/</guid>
+      <guid>https://dixentw.github.io/s/post/225/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Problems:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -361,10 +361,10 @@ ssdb本身長連結 -&amp;gt; debug??&lt;/p&gt;
     
     <item>
       <title>223</title>
-      <link>https://dixentw.github.io/post/223/</link>
+      <link>https://dixentw.github.io/s/post/223/</link>
       <pubDate>Tue, 23 Feb 2016 11:35:20 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/223/</guid>
+      <guid>https://dixentw.github.io/s/post/223/</guid>
       <description>&lt;p&gt;&lt;strong&gt;whats works, and not work (指的是 到目前為止 你認為自己做的好 與需要加強的部分 都可以列出)&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -457,10 +457,10 @@ Here is my list:&lt;/p&gt;
     
     <item>
       <title>218</title>
-      <link>https://dixentw.github.io/post/218/</link>
+      <link>https://dixentw.github.io/s/post/218/</link>
       <pubDate>Thu, 18 Feb 2016 11:40:34 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/post/218/</guid>
+      <guid>https://dixentw.github.io/s/post/218/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;How github update forked project ?&lt;/p&gt;
 

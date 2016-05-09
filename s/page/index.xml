@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on 工作日誌</title>
-    <link>https://dixentw.github.io/page/</link>
+    <link>https://dixentw.github.io/s/page/</link>
     <description>Recent content in Pages on 工作日誌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 May 2016 15:28:03 +0800</lastBuildDate>
-    <atom:link href="https://dixentw.github.io/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dixentw.github.io/s/page/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>java各種小知識</title>
-      <link>https://dixentw.github.io/page/java/</link>
+      <link>https://dixentw.github.io/s/page/java/</link>
       <pubDate>Sat, 07 May 2016 15:28:03 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/java/</guid>
+      <guid>https://dixentw.github.io/s/page/java/</guid>
       <description>
 
 &lt;h3 id=&#34;garbage-collection:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Garbage collection&lt;/h3&gt;
@@ -428,10 +428,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>react與js的各種小知識</title>
-      <link>https://dixentw.github.io/page/react/</link>
+      <link>https://dixentw.github.io/s/page/react/</link>
       <pubDate>Wed, 04 May 2016 10:15:22 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/react/</guid>
+      <guid>https://dixentw.github.io/s/page/react/</guid>
       <description>&lt;p&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -474,10 +474,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Nexusguard Settings</title>
-      <link>https://dixentw.github.io/page/nxgsetting/</link>
+      <link>https://dixentw.github.io/s/page/nxgsetting/</link>
       <pubDate>Fri, 29 Apr 2016 17:49:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/nxgsetting/</guid>
+      <guid>https://dixentw.github.io/s/page/nxgsetting/</guid>
       <description>&lt;p&gt;&lt;strong&gt;把有常回來找的東西貼在這裡:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -500,10 +500,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Nexusguard Project TODO</title>
-      <link>https://dixentw.github.io/page/todonxg/</link>
+      <link>https://dixentw.github.io/s/page/todonxg/</link>
       <pubDate>Fri, 29 Apr 2016 11:31:05 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/todonxg/</guid>
+      <guid>https://dixentw.github.io/s/page/todonxg/</guid>
       <description>&lt;p&gt;Few things to do here.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Platform improvement&lt;/strong&gt;&lt;/p&gt;
@@ -549,10 +549,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Job Related</title>
-      <link>https://dixentw.github.io/page/job_related/</link>
+      <link>https://dixentw.github.io/s/page/job_related/</link>
       <pubDate>Thu, 28 Apr 2016 10:24:06 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/job_related/</guid>
+      <guid>https://dixentw.github.io/s/page/job_related/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Interview&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -603,10 +603,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Angular的各種小知識</title>
-      <link>https://dixentw.github.io/page/angular/</link>
+      <link>https://dixentw.github.io/s/page/angular/</link>
       <pubDate>Wed, 27 Apr 2016 23:03:11 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/angular/</guid>
+      <guid>https://dixentw.github.io/s/page/angular/</guid>
       <description>&lt;p&gt;直接上link, 有些還沒實作完畢~&lt;/p&gt;
 
 &lt;ol&gt;
@@ -623,10 +623,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Golang的各種不錯知識</title>
-      <link>https://dixentw.github.io/page/golang/</link>
+      <link>https://dixentw.github.io/s/page/golang/</link>
       <pubDate>Wed, 27 Apr 2016 22:49:17 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/page/golang/</guid>
+      <guid>https://dixentw.github.io/s/page/golang/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Golang的點點滴滴&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
