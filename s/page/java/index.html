@@ -10,19 +10,19 @@
   <title>java各種小知識 &middot; Dixen</title>
 
   
-  <link rel="stylesheet" href="https://dixentw.github.io/s/css/poole.css">
-  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde.css">
-  <link rel="stylesheet" href="https://dixentw.github.io/s/css/poole-overrides.css">
-  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde-overrides.css">
-  <link rel="stylesheet" href="https://dixentw.github.io/s/css/hyde-x.css">
-  <link rel="stylesheet" href="https://dixentw.github.io/s/css/highlight/sunburst.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://dixentw.github.io/css/highlight/sunburst.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
   
 
   
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dixentw.github.io/s/touch-icon-144-precomposed.png">
-  <link href="https://dixentw.github.io/s/favicon.png" rel="icon">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://dixentw.github.io/touch-icon-144-precomposed.png">
+  <link href="https://dixentw.github.io/favicon.png" rel="icon">
 
   
   
@@ -46,13 +46,13 @@
     </div>
 
     <ul class="sidebar-nav">
-      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/s/">Blog</a></li>
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/">Blog</a></li>
       
-      <li class="sidebar-nav-item"><a href="/s/leetcode/">Leetcode</a></li>
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/leetcode/">Leetcode</a></li>
       
-      <li class="sidebar-nav-item"><a href="/s/page/">Page</a></li>
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/page/">Page</a></li>
       
-      <li class="sidebar-nav-item"><a href="/s/post/">Post</a></li>
+      <li class="sidebar-nav-item"><a href="https://dixentw.github.io/post/">Post</a></li>
       
     </ul>
 
@@ -72,7 +72,7 @@
 
     
 
-    <p>Copyright &copy; 2016 <a href="https://dixentw.github.io/s/license/">License</a><br/>
+    <p>Copyright &copy; 2016 <a href="https://dixentw.github.io/license/">License</a><br/>
        Powered by <a href="http://gohugo.io">Hugo</a> and <a href="https://github.com/zyro/hyde-x">Hyde-X</a></p>
   </div>
 </div>
@@ -152,44 +152,44 @@ public static void go() throws Exception{
 
 <ul>
 <li>Signaling via Shared Objects: 若B thread要等A thread做完某事，才能接手，此刻，他們需要共同reference一個object, 然後set這個object的value，讓另外一個thread看，另外一個thread要polling這個variable, 此為busy wait。</li>
-<li>wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)
-```
-// A correct implementation of a producer and consumer.
-class Q {
-int n;
-boolean valueSet = false;
-synchronized int get() {
-    if(!valueSet)
-    try {
-        wait();
-    } catch(InterruptedException e) {
-        System.out.println(&ldquo;InterruptedException caught&rdquo;);
-    }
-    System.out.println(&ldquo;Got: &ldquo; + n);
-    valueSet = false;
-    notify();
-    return n;
-}
-synchronized void put(int n) {
-    if(valueSet)
-    try {
-        wait();
-    } catch(InterruptedException e) {
-        System.out.println(&ldquo;InterruptedException caught&rdquo;);
-    }
-    this.n = n;
-    valueSet = true;
-    System.out.println(&ldquo;Put: &ldquo; + n);
-    notify();
-}
-}</li>
+<li>wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)<br /></li>
 </ul>
 
-<p>class Producer implements Runnable {
+<pre><code>class Q {
+    int n;
+    boolean valueSet = false;
+    synchronized int get() {
+        while(!valueSet){
+            try {
+                wait();
+            } catch(InterruptedException e) {
+                System.out.println(&quot;InterruptedException caught&quot;);
+            }
+        }
+        System.out.println(&quot;Got: &quot; + n);
+        valueSet = false;
+        notify();
+        return n;
+    }
+    synchronized void put(int n) {
+        while(valueSet){
+            try {
+                wait();
+            } catch(InterruptedException e) {
+                System.out.println(&quot;InterruptedException caught&quot;);
+            }
+        }
+        this.n = n;
+        valueSet = true;
+        System.out.println(&quot;Put: &quot; + n);
+        notify();
+    }
+}
+class Producer implements Runnable {
     Q q;
     Producer(Q q) {
         this.q = q;
-        new Thread(this, &ldquo;Producer&rdquo;).start();
+        new Thread(this, &quot;Producer&quot;).start();
     }
     public void run() {
         int i = 0;
@@ -197,52 +197,48 @@ synchronized void put(int n) {
             q.put(i++);
         }
     }
-}</p>
-
-<p>class Consumer implements Runnable {
+}
+class Consumer implements Runnable {
     Q q;
     Consumer(Q q) {
         this.q = q;
-        new Thread(this, &ldquo;Consumer&rdquo;).start();
+        new Thread(this, &quot;Consumer&quot;).start();
     }
     public void run() {
         while(true) {
             q.get();
         }
     }
-}</p>
-
-<p>class PCFixed {
+}
+class PCFixed {
     public static void main(String args[]) {
         Q q = new Q();
         new Producer(q);
         new Consumer(q);
-        System.out.println(&ldquo;Press Control-C to stop.&rdquo;);
+        System.out.println(&quot;Press Control-C to stop.&quot;);
     }
-}</p>
-
-<pre><code>* idiom
+}
 </code></pre>
 
-<p>// The standard idiom for calling the wait method in Java
-synchronized (sharedObject) {
+<ul>
+<li>idiom<br /></li>
+</ul>
+
+<pre><code>synchronized (sharedObject) {
     while (condition) {
            sharedObject.wait();
            // (Releases lock, and reacquires on wakeup)
     }
     // do action based upon condition e.g. take or put into queue
 }
-```</p></li>
+</code></pre></li>
 </ul></li>
 </ol>
 
 <h3 id="data-structure:2fe63a086631fd317b5011f46eddfec4">Data Structure</h3>
 
-<h3 id="others:2fe63a086631fd317b5011f46eddfec4">Others</h3>
-
 <ul>
 <li>transient?</li>
-<li>Abstract class vs Interface</li>
 </ul>
 
 <h3 id="oo-principle:2fe63a086631fd317b5011f46eddfec4">OO principle</h3>
@@ -333,19 +329,78 @@ while(true){
 </code></li>
 <li>Phantom Reference</li>
 </ul></li>
-<li>Hashcode的作用 : 在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同</li>
-<li>ArrayList、LinkedList、Vector的区别。</li>
-<li>String、StringBuffer与StringBuilder的区别。</li>
-<li>Map、Set、List、Queue、Stack的特点与用法。</li>
-<li>HashMap和HashTable的区别。</li>
+<li>Hashcode的作用
+
+<ul>
+<li>在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同</li>
+</ul></li>
+<li>ArrayList、LinkedList、Vector的区别。
+
+<ul>
+<li>List : is an ordered sequence of elements</li>
+<li>ArrayList : list implemented with resizable array.</li>
+<li>LinkedList : list implemented with double linked list. better add/remove time than arraylist, slower for get/set</li>
+<li>LinkedList
+
+<ul>
+<li>get is O(n)</li>
+<li>add is O(1)</li>
+<li>remove is O(n)</li>
+</ul></li>
+<li>ArrayList
+
+<ul>
+<li>get is O(1)</li>
+<li>add is O(1), but with array resize, will be O(n)</li>
+<li>remove is O(n)</li>
+</ul></li>
+<li>Vector:
+
+<ul>
+<li>almost arraylist, with synchronized, 對於thread safe的場景，使用arraylist會比較好</li>
+</ul></li>
+</ul></li>
+<li>String、StringBuffer与StringBuilder的区别。
+
+<ul>
+<li>String: the length cannot be modified</li>
+<li>StringBuffer: faster when you want to frequently modified a String, thread-safe</li>
+<li>StringBuilder: almost the same with StringBuffer, not thread-safe</li>
+</ul></li>
+<li>Map、Set、List、Queue、Stack的特点与用法。
+
+<ul>
+<li>Map - key, value one-on-one mapping.</li>
+<li>Set - save non-duplicated elements, not preserve their order.</li>
+<li>List - save elements with order, the element and be duplicated.</li>
+<li>Queue - interface with offer, poll, peak. ArrayList is one of implementation.</li>
+<li>Stack - based on Vector, implement First In Last Out fashion.</li>
+</ul></li>
+<li>HashMap和HashTable的区别。
+
+<ul>
+<li>They are Map interface implementation.</li>
+<li>HashTable : thread-safe, cannot store null</li>
+<li>HashMap : non- threadsafe, can store null</li>
+</ul></li>
 <li>HashMap和ConcurrentHashMap的区别，HashMap的底层源码。</li>
 <li>TreeMap、HashMap、LindedHashMap的区别。</li>
 <li>Collection包结构，与Collections的区别。</li>
 <li>try catch finally，try里有return，finally还执行么？</li>
-<li>Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。</li>
+<li>Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。 -&gt; 太偏</li>
 <li>Java面向对象的三个特征与含义。</li>
-<li>Override和Overload的含义去区别。</li>
-<li>Interface与abstract类的区别。</li>
+<li>Override和Overload的含义去区别。
+
+<ul>
+<li>override: sub class extend super class&rsquo;s function(change behavior or specify task)</li>
+<li>overload: member functions may have the same name if there parameters are different.</li>
+</ul></li>
+<li>Interface与abstract class的区别。
+
+<ul>
+<li>interface:</li>
+<li>abstract class:</li>
+</ul></li>
 <li>Static class 与non static class的区别。</li>
 <li>java多态的实现原理。 請見<a href="#poly">上面</a></li>
 <li>实现多线程的两种方法：Thread与Runable。</li>
@@ -437,7 +492,7 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
 
   </div>
 </div>
-<script src="https://dixentw.github.io/s/js/highlight.pack.js"></script>
+<script src="https://dixentw.github.io/js/highlight.pack.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 </body>
 </html>

@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Pages on 工作日誌</title>
-    <link>https://dixentw.github.io/s/page/</link>
+    <link>https://dixentw.github.io/page/</link>
     <description>Recent content in Pages on 工作日誌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sat, 07 May 2016 15:28:03 +0800</lastBuildDate>
-    <atom:link href="https://dixentw.github.io/s/page/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://dixentw.github.io/page/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>java各種小知識</title>
-      <link>https://dixentw.github.io/s/page/java/</link>
+      <link>https://dixentw.github.io/page/java/</link>
       <pubDate>Sat, 07 May 2016 15:28:03 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/java/</guid>
+      <guid>https://dixentw.github.io/page/java/</guid>
       <description>
 
 &lt;h3 id=&#34;garbage-collection:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Garbage collection&lt;/h3&gt;
@@ -86,44 +86,44 @@ public static void go() throws Exception{
 
 &lt;ul&gt;
 &lt;li&gt;Signaling via Shared Objects: 若B thread要等A thread做完某事，才能接手，此刻，他們需要共同reference一個object, 然後set這個object的value，讓另外一個thread看，另外一個thread要polling這個variable, 此為busy wait。&lt;/li&gt;
-&lt;li&gt;wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)
-```
-// A correct implementation of a producer and consumer.
-class Q {
-int n;
-boolean valueSet = false;
-synchronized int get() {
-    if(!valueSet)
-    try {
-        wait();
-    } catch(InterruptedException e) {
-        System.out.println(&amp;ldquo;InterruptedException caught&amp;rdquo;);
-    }
-    System.out.println(&amp;ldquo;Got: &amp;ldquo; + n);
-    valueSet = false;
-    notify();
-    return n;
-}
-synchronized void put(int n) {
-    if(valueSet)
-    try {
-        wait();
-    } catch(InterruptedException e) {
-        System.out.println(&amp;ldquo;InterruptedException caught&amp;rdquo;);
-    }
-    this.n = n;
-    valueSet = true;
-    System.out.println(&amp;ldquo;Put: &amp;ldquo; + n);
-    notify();
-}
-}&lt;/li&gt;
+&lt;li&gt;wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;class Producer implements Runnable {
+&lt;pre&gt;&lt;code&gt;class Q {
+    int n;
+    boolean valueSet = false;
+    synchronized int get() {
+        while(!valueSet){
+            try {
+                wait();
+            } catch(InterruptedException e) {
+                System.out.println(&amp;quot;InterruptedException caught&amp;quot;);
+            }
+        }
+        System.out.println(&amp;quot;Got: &amp;quot; + n);
+        valueSet = false;
+        notify();
+        return n;
+    }
+    synchronized void put(int n) {
+        while(valueSet){
+            try {
+                wait();
+            } catch(InterruptedException e) {
+                System.out.println(&amp;quot;InterruptedException caught&amp;quot;);
+            }
+        }
+        this.n = n;
+        valueSet = true;
+        System.out.println(&amp;quot;Put: &amp;quot; + n);
+        notify();
+    }
+}
+class Producer implements Runnable {
     Q q;
     Producer(Q q) {
         this.q = q;
-        new Thread(this, &amp;ldquo;Producer&amp;rdquo;).start();
+        new Thread(this, &amp;quot;Producer&amp;quot;).start();
     }
     public void run() {
         int i = 0;
@@ -131,52 +131,48 @@ synchronized void put(int n) {
             q.put(i++);
         }
     }
-}&lt;/p&gt;
-
-&lt;p&gt;class Consumer implements Runnable {
+}
+class Consumer implements Runnable {
     Q q;
     Consumer(Q q) {
         this.q = q;
-        new Thread(this, &amp;ldquo;Consumer&amp;rdquo;).start();
+        new Thread(this, &amp;quot;Consumer&amp;quot;).start();
     }
     public void run() {
         while(true) {
             q.get();
         }
     }
-}&lt;/p&gt;
-
-&lt;p&gt;class PCFixed {
+}
+class PCFixed {
     public static void main(String args[]) {
         Q q = new Q();
         new Producer(q);
         new Consumer(q);
-        System.out.println(&amp;ldquo;Press Control-C to stop.&amp;rdquo;);
+        System.out.println(&amp;quot;Press Control-C to stop.&amp;quot;);
     }
-}&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* idiom
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;// The standard idiom for calling the wait method in Java
-synchronized (sharedObject) {
+&lt;ul&gt;
+&lt;li&gt;idiom&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;synchronized (sharedObject) {
     while (condition) {
            sharedObject.wait();
            // (Releases lock, and reacquires on wakeup)
     }
     // do action based upon condition e.g. take or put into queue
 }
-```&lt;/p&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&#34;data-structure:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Data Structure&lt;/h3&gt;
 
-&lt;h3 id=&#34;others:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Others&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;transient?&lt;/li&gt;
-&lt;li&gt;Abstract class vs Interface&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;oo-principle:2fe63a086631fd317b5011f46eddfec4&#34;&gt;OO principle&lt;/h3&gt;
@@ -267,19 +263,78 @@ while(true){
 &lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Phantom Reference&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Hashcode的作用 : 在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同&lt;/li&gt;
-&lt;li&gt;ArrayList、LinkedList、Vector的区别。&lt;/li&gt;
-&lt;li&gt;String、StringBuffer与StringBuilder的区别。&lt;/li&gt;
-&lt;li&gt;Map、Set、List、Queue、Stack的特点与用法。&lt;/li&gt;
-&lt;li&gt;HashMap和HashTable的区别。&lt;/li&gt;
+&lt;li&gt;Hashcode的作用
+
+&lt;ul&gt;
+&lt;li&gt;在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ArrayList、LinkedList、Vector的区别。
+
+&lt;ul&gt;
+&lt;li&gt;List : is an ordered sequence of elements&lt;/li&gt;
+&lt;li&gt;ArrayList : list implemented with resizable array.&lt;/li&gt;
+&lt;li&gt;LinkedList : list implemented with double linked list. better add/remove time than arraylist, slower for get/set&lt;/li&gt;
+&lt;li&gt;LinkedList
+
+&lt;ul&gt;
+&lt;li&gt;get is O(n)&lt;/li&gt;
+&lt;li&gt;add is O(1)&lt;/li&gt;
+&lt;li&gt;remove is O(n)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ArrayList
+
+&lt;ul&gt;
+&lt;li&gt;get is O(1)&lt;/li&gt;
+&lt;li&gt;add is O(1), but with array resize, will be O(n)&lt;/li&gt;
+&lt;li&gt;remove is O(n)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Vector:
+
+&lt;ul&gt;
+&lt;li&gt;almost arraylist, with synchronized, 對於thread safe的場景，使用arraylist會比較好&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;String、StringBuffer与StringBuilder的区别。
+
+&lt;ul&gt;
+&lt;li&gt;String: the length cannot be modified&lt;/li&gt;
+&lt;li&gt;StringBuffer: faster when you want to frequently modified a String, thread-safe&lt;/li&gt;
+&lt;li&gt;StringBuilder: almost the same with StringBuffer, not thread-safe&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Map、Set、List、Queue、Stack的特点与用法。
+
+&lt;ul&gt;
+&lt;li&gt;Map - key, value one-on-one mapping.&lt;/li&gt;
+&lt;li&gt;Set - save non-duplicated elements, not preserve their order.&lt;/li&gt;
+&lt;li&gt;List - save elements with order, the element and be duplicated.&lt;/li&gt;
+&lt;li&gt;Queue - interface with offer, poll, peak. ArrayList is one of implementation.&lt;/li&gt;
+&lt;li&gt;Stack - based on Vector, implement First In Last Out fashion.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;HashMap和HashTable的区别。
+
+&lt;ul&gt;
+&lt;li&gt;They are Map interface implementation.&lt;/li&gt;
+&lt;li&gt;HashTable : thread-safe, cannot store null&lt;/li&gt;
+&lt;li&gt;HashMap : non- threadsafe, can store null&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;HashMap和ConcurrentHashMap的区别，HashMap的底层源码。&lt;/li&gt;
 &lt;li&gt;TreeMap、HashMap、LindedHashMap的区别。&lt;/li&gt;
 &lt;li&gt;Collection包结构，与Collections的区别。&lt;/li&gt;
 &lt;li&gt;try catch finally，try里有return，finally还执行么？&lt;/li&gt;
-&lt;li&gt;Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。&lt;/li&gt;
+&lt;li&gt;Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。 -&amp;gt; 太偏&lt;/li&gt;
 &lt;li&gt;Java面向对象的三个特征与含义。&lt;/li&gt;
-&lt;li&gt;Override和Overload的含义去区别。&lt;/li&gt;
-&lt;li&gt;Interface与abstract类的区别。&lt;/li&gt;
+&lt;li&gt;Override和Overload的含义去区别。
+
+&lt;ul&gt;
+&lt;li&gt;override: sub class extend super class&amp;rsquo;s function(change behavior or specify task)&lt;/li&gt;
+&lt;li&gt;overload: member functions may have the same name if there parameters are different.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Interface与abstract class的区别。
+
+&lt;ul&gt;
+&lt;li&gt;interface:&lt;/li&gt;
+&lt;li&gt;abstract class:&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Static class 与non static class的区别。&lt;/li&gt;
 &lt;li&gt;java多态的实现原理。 請見&lt;a href=&#34;#poly&#34;&gt;上面&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;实现多线程的两种方法：Thread与Runable。&lt;/li&gt;
@@ -373,10 +428,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>react與js的各種小知識</title>
-      <link>https://dixentw.github.io/s/page/react/</link>
+      <link>https://dixentw.github.io/page/react/</link>
       <pubDate>Wed, 04 May 2016 10:15:22 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/react/</guid>
+      <guid>https://dixentw.github.io/page/react/</guid>
       <description>&lt;p&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -419,10 +474,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Nexusguard Settings</title>
-      <link>https://dixentw.github.io/s/page/nxgsetting/</link>
+      <link>https://dixentw.github.io/page/nxgsetting/</link>
       <pubDate>Fri, 29 Apr 2016 17:49:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/nxgsetting/</guid>
+      <guid>https://dixentw.github.io/page/nxgsetting/</guid>
       <description>&lt;p&gt;&lt;strong&gt;把有常回來找的東西貼在這裡:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -445,10 +500,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Nexusguard Project TODO</title>
-      <link>https://dixentw.github.io/s/page/todonxg/</link>
+      <link>https://dixentw.github.io/page/todonxg/</link>
       <pubDate>Fri, 29 Apr 2016 11:31:05 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/todonxg/</guid>
+      <guid>https://dixentw.github.io/page/todonxg/</guid>
       <description>&lt;p&gt;Few things to do here.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Platform improvement&lt;/strong&gt;&lt;/p&gt;
@@ -494,10 +549,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Job Related</title>
-      <link>https://dixentw.github.io/s/page/job_related/</link>
+      <link>https://dixentw.github.io/page/job_related/</link>
       <pubDate>Thu, 28 Apr 2016 10:24:06 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/job_related/</guid>
+      <guid>https://dixentw.github.io/page/job_related/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Interview&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -548,10 +603,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Angular的各種小知識</title>
-      <link>https://dixentw.github.io/s/page/angular/</link>
+      <link>https://dixentw.github.io/page/angular/</link>
       <pubDate>Wed, 27 Apr 2016 23:03:11 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/angular/</guid>
+      <guid>https://dixentw.github.io/page/angular/</guid>
       <description>&lt;p&gt;直接上link, 有些還沒實作完畢~&lt;/p&gt;
 
 &lt;ol&gt;
@@ -568,10 +623,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>Golang的各種不錯知識</title>
-      <link>https://dixentw.github.io/s/page/golang/</link>
+      <link>https://dixentw.github.io/page/golang/</link>
       <pubDate>Wed, 27 Apr 2016 22:49:17 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/golang/</guid>
+      <guid>https://dixentw.github.io/page/golang/</guid>
       <description>&lt;p&gt;&lt;strong&gt;Golang的點點滴滴&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;

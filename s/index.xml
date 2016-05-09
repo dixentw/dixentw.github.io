@@ -2,19 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>工作日誌</title>
-    <link>https://dixentw.github.io/s/</link>
+    <link>https://dixentw.github.io/</link>
     <description>Recent content on 工作日誌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 07 May 2016 15:28:03 +0800</lastBuildDate>
-    <atom:link href="https://dixentw.github.io/s/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2016 11:20:30 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>rectangle</title>
+      <link>https://dixentw.github.io/leetcode/rectangle/</link>
+      <pubDate>Mon, 09 May 2016 11:20:30 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/leetcode/rectangle/</guid>
+      <description>&lt;p&gt;Find the total area covered by two rectilinear rectangles in a 2D plane.&lt;/p&gt;
+
+&lt;p&gt;Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://leetcode.com/static/images/problemset/rectangle_area.png&#34; alt=&#34;Rectangle Area&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Assume that the total area is never beyond the maximum possible value of int.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;判斷兩個矩形是否
+
+&lt;ol&gt;
+&lt;li&gt;分開&lt;/li&gt;
+&lt;li&gt;包含&lt;/li&gt;
+&lt;li&gt;交集&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;初始想法：交集有分四種交集法，左上交集，左下交集，右上交集，右下交集
+所以這判斷式太多，我們需要general的方法判斷交集矩形的上下左右&lt;/p&gt;
+
+&lt;p&gt;如下程式碼是別人的，包含與交集可以一起判斷&lt;/p&gt;
+
+&lt;p&gt;This problem can be converted as a overlap internal problem. On the x-axis, there are (A,C) and (E,G); on the y-axis, there are (F,H) and (B,D). If they do not have overlap, the total area is the sum of 2 rectangle areas. If they have overlap, the total area should minus the overlap area.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.programcreek.com/wp-content/uploads/2015/06/rectangle-area-400x187.jpg&#34; alt=&#34;圖示&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+   //if R1, R2 overlap, contains, or separate?
+    //1. seperate :
+    if(E&amp;gt;=C ||F&amp;gt;=D){
+        return (C-A)*(D-B) + (G-E)*(H-F);
+    }
+    if(A&amp;gt;=G ||B&amp;gt;=H){
+        return (C-A)*(D-B) + (G-E)*(H-F);
+    }
+    //2. contains or overlap:
+    int right = Math.min(C, G);
+    int left = Math.max(A, E);
+    int top = Math.min(H, D);
+    int bottom = Math.max(B, F);
+    return (C-A)*(D-B)+(G-E)*(H-F) - (right-left) * (top-bottom);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>java各種小知識</title>
-      <link>https://dixentw.github.io/s/page/java/</link>
+      <link>https://dixentw.github.io/page/java/</link>
       <pubDate>Sat, 07 May 2016 15:28:03 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/java/</guid>
+      <guid>https://dixentw.github.io/page/java/</guid>
       <description>
 
 &lt;h3 id=&#34;garbage-collection:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Garbage collection&lt;/h3&gt;
@@ -86,44 +141,44 @@ public static void go() throws Exception{
 
 &lt;ul&gt;
 &lt;li&gt;Signaling via Shared Objects: 若B thread要等A thread做完某事，才能接手，此刻，他們需要共同reference一個object, 然後set這個object的value，讓另外一個thread看，另外一個thread要polling這個variable, 此為busy wait。&lt;/li&gt;
-&lt;li&gt;wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)
-```
-// A correct implementation of a producer and consumer.
-class Q {
-int n;
-boolean valueSet = false;
-synchronized int get() {
-    if(!valueSet)
-    try {
-        wait();
-    } catch(InterruptedException e) {
-        System.out.println(&amp;ldquo;InterruptedException caught&amp;rdquo;);
-    }
-    System.out.println(&amp;ldquo;Got: &amp;ldquo; + n);
-    valueSet = false;
-    notify();
-    return n;
-}
-synchronized void put(int n) {
-    if(valueSet)
-    try {
-        wait();
-    } catch(InterruptedException e) {
-        System.out.println(&amp;ldquo;InterruptedException caught&amp;rdquo;);
-    }
-    this.n = n;
-    valueSet = true;
-    System.out.println(&amp;ldquo;Put: &amp;ldquo; + n);
-    notify();
-}
-}&lt;/li&gt;
+&lt;li&gt;wait and notify, example: （必須使用synchronized!!! 某thread要可以wait, notify, 必須要有該物件的lock)&lt;br /&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;class Producer implements Runnable {
+&lt;pre&gt;&lt;code&gt;class Q {
+    int n;
+    boolean valueSet = false;
+    synchronized int get() {
+        while(!valueSet){
+            try {
+                wait();
+            } catch(InterruptedException e) {
+                System.out.println(&amp;quot;InterruptedException caught&amp;quot;);
+            }
+        }
+        System.out.println(&amp;quot;Got: &amp;quot; + n);
+        valueSet = false;
+        notify();
+        return n;
+    }
+    synchronized void put(int n) {
+        while(valueSet){
+            try {
+                wait();
+            } catch(InterruptedException e) {
+                System.out.println(&amp;quot;InterruptedException caught&amp;quot;);
+            }
+        }
+        this.n = n;
+        valueSet = true;
+        System.out.println(&amp;quot;Put: &amp;quot; + n);
+        notify();
+    }
+}
+class Producer implements Runnable {
     Q q;
     Producer(Q q) {
         this.q = q;
-        new Thread(this, &amp;ldquo;Producer&amp;rdquo;).start();
+        new Thread(this, &amp;quot;Producer&amp;quot;).start();
     }
     public void run() {
         int i = 0;
@@ -131,52 +186,48 @@ synchronized void put(int n) {
             q.put(i++);
         }
     }
-}&lt;/p&gt;
-
-&lt;p&gt;class Consumer implements Runnable {
+}
+class Consumer implements Runnable {
     Q q;
     Consumer(Q q) {
         this.q = q;
-        new Thread(this, &amp;ldquo;Consumer&amp;rdquo;).start();
+        new Thread(this, &amp;quot;Consumer&amp;quot;).start();
     }
     public void run() {
         while(true) {
             q.get();
         }
     }
-}&lt;/p&gt;
-
-&lt;p&gt;class PCFixed {
+}
+class PCFixed {
     public static void main(String args[]) {
         Q q = new Q();
         new Producer(q);
         new Consumer(q);
-        System.out.println(&amp;ldquo;Press Control-C to stop.&amp;rdquo;);
+        System.out.println(&amp;quot;Press Control-C to stop.&amp;quot;);
     }
-}&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;* idiom
+}
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;// The standard idiom for calling the wait method in Java
-synchronized (sharedObject) {
+&lt;ul&gt;
+&lt;li&gt;idiom&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code&gt;synchronized (sharedObject) {
     while (condition) {
            sharedObject.wait();
            // (Releases lock, and reacquires on wakeup)
     }
     // do action based upon condition e.g. take or put into queue
 }
-```&lt;/p&gt;&lt;/li&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
 &lt;/ol&gt;
 
 &lt;h3 id=&#34;data-structure:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Data Structure&lt;/h3&gt;
 
-&lt;h3 id=&#34;others:2fe63a086631fd317b5011f46eddfec4&#34;&gt;Others&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;transient?&lt;/li&gt;
-&lt;li&gt;Abstract class vs Interface&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h3 id=&#34;oo-principle:2fe63a086631fd317b5011f46eddfec4&#34;&gt;OO principle&lt;/h3&gt;
@@ -267,19 +318,78 @@ while(true){
 &lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;Phantom Reference&lt;/li&gt;
 &lt;/ul&gt;&lt;/li&gt;
-&lt;li&gt;Hashcode的作用 : 在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同&lt;/li&gt;
-&lt;li&gt;ArrayList、LinkedList、Vector的区别。&lt;/li&gt;
-&lt;li&gt;String、StringBuffer与StringBuilder的区别。&lt;/li&gt;
-&lt;li&gt;Map、Set、List、Queue、Stack的特点与用法。&lt;/li&gt;
-&lt;li&gt;HashMap和HashTable的区别。&lt;/li&gt;
+&lt;li&gt;Hashcode的作用
+
+&lt;ul&gt;
+&lt;li&gt;在使用collector的時候，如Set, 要保證放進Set的物件不重複，必須調用這個method, 理論上這個method每個物件出來的value要不同&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ArrayList、LinkedList、Vector的区别。
+
+&lt;ul&gt;
+&lt;li&gt;List : is an ordered sequence of elements&lt;/li&gt;
+&lt;li&gt;ArrayList : list implemented with resizable array.&lt;/li&gt;
+&lt;li&gt;LinkedList : list implemented with double linked list. better add/remove time than arraylist, slower for get/set&lt;/li&gt;
+&lt;li&gt;LinkedList
+
+&lt;ul&gt;
+&lt;li&gt;get is O(n)&lt;/li&gt;
+&lt;li&gt;add is O(1)&lt;/li&gt;
+&lt;li&gt;remove is O(n)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;ArrayList
+
+&lt;ul&gt;
+&lt;li&gt;get is O(1)&lt;/li&gt;
+&lt;li&gt;add is O(1), but with array resize, will be O(n)&lt;/li&gt;
+&lt;li&gt;remove is O(n)&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Vector:
+
+&lt;ul&gt;
+&lt;li&gt;almost arraylist, with synchronized, 對於thread safe的場景，使用arraylist會比較好&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;String、StringBuffer与StringBuilder的区别。
+
+&lt;ul&gt;
+&lt;li&gt;String: the length cannot be modified&lt;/li&gt;
+&lt;li&gt;StringBuffer: faster when you want to frequently modified a String, thread-safe&lt;/li&gt;
+&lt;li&gt;StringBuilder: almost the same with StringBuffer, not thread-safe&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Map、Set、List、Queue、Stack的特点与用法。
+
+&lt;ul&gt;
+&lt;li&gt;Map - key, value one-on-one mapping.&lt;/li&gt;
+&lt;li&gt;Set - save non-duplicated elements, not preserve their order.&lt;/li&gt;
+&lt;li&gt;List - save elements with order, the element and be duplicated.&lt;/li&gt;
+&lt;li&gt;Queue - interface with offer, poll, peak. ArrayList is one of implementation.&lt;/li&gt;
+&lt;li&gt;Stack - based on Vector, implement First In Last Out fashion.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;HashMap和HashTable的区别。
+
+&lt;ul&gt;
+&lt;li&gt;They are Map interface implementation.&lt;/li&gt;
+&lt;li&gt;HashTable : thread-safe, cannot store null&lt;/li&gt;
+&lt;li&gt;HashMap : non- threadsafe, can store null&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;HashMap和ConcurrentHashMap的区别，HashMap的底层源码。&lt;/li&gt;
 &lt;li&gt;TreeMap、HashMap、LindedHashMap的区别。&lt;/li&gt;
 &lt;li&gt;Collection包结构，与Collections的区别。&lt;/li&gt;
 &lt;li&gt;try catch finally，try里有return，finally还执行么？&lt;/li&gt;
-&lt;li&gt;Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。&lt;/li&gt;
+&lt;li&gt;Excption与Error包结构。OOM你遇到过哪些情况，SOF你遇到过哪些情况。 -&amp;gt; 太偏&lt;/li&gt;
 &lt;li&gt;Java面向对象的三个特征与含义。&lt;/li&gt;
-&lt;li&gt;Override和Overload的含义去区别。&lt;/li&gt;
-&lt;li&gt;Interface与abstract类的区别。&lt;/li&gt;
+&lt;li&gt;Override和Overload的含义去区别。
+
+&lt;ul&gt;
+&lt;li&gt;override: sub class extend super class&amp;rsquo;s function(change behavior or specify task)&lt;/li&gt;
+&lt;li&gt;overload: member functions may have the same name if there parameters are different.&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;li&gt;Interface与abstract class的区别。
+
+&lt;ul&gt;
+&lt;li&gt;interface:&lt;/li&gt;
+&lt;li&gt;abstract class:&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
 &lt;li&gt;Static class 与non static class的区别。&lt;/li&gt;
 &lt;li&gt;java多态的实现原理。 請見&lt;a href=&#34;#poly&#34;&gt;上面&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;实现多线程的两种方法：Thread与Runable。&lt;/li&gt;
@@ -373,10 +483,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>506</title>
-      <link>https://dixentw.github.io/s/post/506/</link>
+      <link>https://dixentw.github.io/post/506/</link>
       <pubDate>Fri, 06 May 2016 10:44:08 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/post/506/</guid>
+      <guid>https://dixentw.github.io/post/506/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;SimpleRNN做不出來啊~~
 
@@ -395,10 +505,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>505</title>
-      <link>https://dixentw.github.io/s/post/505/</link>
+      <link>https://dixentw.github.io/post/505/</link>
       <pubDate>Thu, 05 May 2016 10:16:15 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/post/505/</guid>
+      <guid>https://dixentw.github.io/post/505/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;find a bug : OP panel, TD module
 
@@ -412,10 +522,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>react與js的各種小知識</title>
-      <link>https://dixentw.github.io/s/page/react/</link>
+      <link>https://dixentw.github.io/page/react/</link>
       <pubDate>Wed, 04 May 2016 10:15:22 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/react/</guid>
+      <guid>https://dixentw.github.io/page/react/</guid>
       <description>&lt;p&gt;&lt;strong&gt;React&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ol&gt;
@@ -458,10 +568,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>504</title>
-      <link>https://dixentw.github.io/s/post/504/</link>
+      <link>https://dixentw.github.io/post/504/</link>
       <pubDate>Wed, 04 May 2016 10:00:38 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/post/504/</guid>
+      <guid>https://dixentw.github.io/post/504/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;run keras of RNN, using default parameters, should understand &lt;code&gt;fit()&lt;/code&gt; training output means&lt;/p&gt;&lt;/li&gt;
 
@@ -483,10 +593,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>503</title>
-      <link>https://dixentw.github.io/s/post/503/</link>
+      <link>https://dixentw.github.io/post/503/</link>
       <pubDate>Tue, 03 May 2016 11:25:55 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/post/503/</guid>
+      <guid>https://dixentw.github.io/post/503/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;&lt;p&gt;Setting up keras, run on Theano&lt;/p&gt;
 
@@ -518,10 +628,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>292. Nim Game</title>
-      <link>https://dixentw.github.io/s/leetcode/nimgame/</link>
+      <link>https://dixentw.github.io/leetcode/nimgame/</link>
       <pubDate>Sat, 30 Apr 2016 09:28:52 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/nimgame/</guid>
+      <guid>https://dixentw.github.io/leetcode/nimgame/</guid>
       <description>&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
 
 &lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
@@ -551,10 +661,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>100. Same Tree</title>
-      <link>https://dixentw.github.io/s/leetcode/sametree/</link>
+      <link>https://dixentw.github.io/leetcode/sametree/</link>
       <pubDate>Sat, 30 Apr 2016 09:25:21 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/sametree/</guid>
+      <guid>https://dixentw.github.io/leetcode/sametree/</guid>
       <description>&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
 
 &lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;/p&gt;
@@ -584,10 +694,10 @@ JVM过去过来就问了这么些问题，没怎么变，内存模型和GC算法
     
     <item>
       <title>49. Group Anagrams</title>
-      <link>https://dixentw.github.io/s/leetcode/groupanagram/</link>
+      <link>https://dixentw.github.io/leetcode/groupanagram/</link>
       <pubDate>Sat, 30 Apr 2016 09:15:42 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/groupanagram/</guid>
+      <guid>https://dixentw.github.io/leetcode/groupanagram/</guid>
       <description>&lt;p&gt;Given an array of strings, group anagrams together.&lt;/p&gt;
 
 &lt;p&gt;For example, given: &lt;code&gt;[&amp;quot;eat&amp;quot;, &amp;quot;tea&amp;quot;, &amp;quot;tan&amp;quot;, &amp;quot;ate&amp;quot;, &amp;quot;nat&amp;quot;, &amp;quot;bat&amp;quot;]&lt;/code&gt;,
@@ -690,10 +800,10 @@ public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] str
     
     <item>
       <title>Nexusguard Settings</title>
-      <link>https://dixentw.github.io/s/page/nxgsetting/</link>
+      <link>https://dixentw.github.io/page/nxgsetting/</link>
       <pubDate>Fri, 29 Apr 2016 17:49:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/nxgsetting/</guid>
+      <guid>https://dixentw.github.io/page/nxgsetting/</guid>
       <description>&lt;p&gt;&lt;strong&gt;把有常回來找的東西貼在這裡:&lt;/strong&gt;&lt;/p&gt;
 
 &lt;ul&gt;
@@ -716,10 +826,10 @@ public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] str
     
     <item>
       <title>Nexusguard Project TODO</title>
-      <link>https://dixentw.github.io/s/page/todonxg/</link>
+      <link>https://dixentw.github.io/page/todonxg/</link>
       <pubDate>Fri, 29 Apr 2016 11:31:05 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/page/todonxg/</guid>
+      <guid>https://dixentw.github.io/page/todonxg/</guid>
       <description>&lt;p&gt;Few things to do here.&lt;/p&gt;
 
 &lt;p&gt;&lt;strong&gt;Platform improvement&lt;/strong&gt;&lt;/p&gt;
@@ -765,10 +875,10 @@ public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] str
     
     <item>
       <title>429</title>
-      <link>https://dixentw.github.io/s/post/429/</link>
+      <link>https://dixentw.github.io/post/429/</link>
       <pubDate>Fri, 29 Apr 2016 11:25:55 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/post/429/</guid>
+      <guid>https://dixentw.github.io/post/429/</guid>
       <description>&lt;ul&gt;
 &lt;li&gt;重開DNS mi 的DFs&lt;/li&gt;
 &lt;li&gt;需要report?寫report的人走了QQ&lt;/li&gt;
@@ -785,10 +895,10 @@ public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] str
     
     <item>
       <title>242. Valid Anagram</title>
-      <link>https://dixentw.github.io/s/leetcode/anagram/</link>
+      <link>https://dixentw.github.io/leetcode/anagram/</link>
       <pubDate>Thu, 28 Apr 2016 22:43:25 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/anagram/</guid>
+      <guid>https://dixentw.github.io/leetcode/anagram/</guid>
       <description>&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
 
 &lt;p&gt;For example,
@@ -850,10 +960,10 @@ What if the inputs contain unicode characters? How would you adapt your solution
     
     <item>
       <title>1. twosum</title>
-      <link>https://dixentw.github.io/s/leetcode/twosum/</link>
+      <link>https://dixentw.github.io/leetcode/twosum/</link>
       <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/twosum/</guid>
+      <guid>https://dixentw.github.io/leetcode/twosum/</guid>
       <description>&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution.&lt;/p&gt;
 
@@ -910,37 +1020,6 @@ The return format had been changed to zero-based indices. Please read the above 
     return new int[]{999,999};
 }
 &lt;/code&gt;&lt;/pre&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>205. Isomorphic Strings</title>
-      <link>https://dixentw.github.io/s/leetcode/isomorphicstring/</link>
-      <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
-      
-      <guid>https://dixentw.github.io/s/leetcode/isomorphicstring/</guid>
-      <description>&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
-
-&lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
-
-&lt;p&gt;All occurrences of a character must be replaced with another character while preserving the order of characters. No two characters may map to the same character but a character may map to itself.&lt;/p&gt;
-
-&lt;p&gt;For example,&lt;/p&gt;
-
-&lt;p&gt;Given &lt;code&gt;&amp;quot;egg&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;add&amp;quot;&lt;/code&gt;, return true.&lt;/p&gt;
-
-&lt;p&gt;Given &lt;code&gt;&amp;quot;foo&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;bar&amp;quot;&lt;/code&gt;, return false.&lt;/p&gt;
-
-&lt;p&gt;Given &lt;code&gt;&amp;quot;paper&amp;quot;&lt;/code&gt;, &lt;code&gt;&amp;quot;title&amp;quot;&lt;/code&gt;, return true.&lt;/p&gt;
-
-&lt;p&gt;Note:
-You may assume both s and t have the same length.&lt;/p&gt;
-
-&lt;hr /&gt;
-
-&lt;p&gt;*&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     

@@ -2,19 +2,74 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Leetcodes on 工作日誌</title>
-    <link>https://dixentw.github.io/s/leetcode/</link>
+    <link>https://dixentw.github.io/leetcode/</link>
     <description>Recent content in Leetcodes on 工作日誌</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 30 Apr 2016 09:28:52 +0800</lastBuildDate>
-    <atom:link href="https://dixentw.github.io/s/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 09 May 2016 11:20:30 +0800</lastBuildDate>
+    <atom:link href="https://dixentw.github.io/leetcode/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>rectangle</title>
+      <link>https://dixentw.github.io/leetcode/rectangle/</link>
+      <pubDate>Mon, 09 May 2016 11:20:30 +0800</pubDate>
+      
+      <guid>https://dixentw.github.io/leetcode/rectangle/</guid>
+      <description>&lt;p&gt;Find the total area covered by two rectilinear rectangles in a 2D plane.&lt;/p&gt;
+
+&lt;p&gt;Each rectangle is defined by its bottom left corner and top right corner as shown in the figure.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://leetcode.com/static/images/problemset/rectangle_area.png&#34; alt=&#34;Rectangle Area&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Assume that the total area is never beyond the maximum possible value of int.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li&gt;判斷兩個矩形是否
+
+&lt;ol&gt;
+&lt;li&gt;分開&lt;/li&gt;
+&lt;li&gt;包含&lt;/li&gt;
+&lt;li&gt;交集&lt;/li&gt;
+&lt;/ol&gt;&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;初始想法：交集有分四種交集法，左上交集，左下交集，右上交集，右下交集
+所以這判斷式太多，我們需要general的方法判斷交集矩形的上下左右&lt;/p&gt;
+
+&lt;p&gt;如下程式碼是別人的，包含與交集可以一起判斷&lt;/p&gt;
+
+&lt;p&gt;This problem can be converted as a overlap internal problem. On the x-axis, there are (A,C) and (E,G); on the y-axis, there are (F,H) and (B,D). If they do not have overlap, the total area is the sum of 2 rectangle areas. If they have overlap, the total area should minus the overlap area.&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;http://www.programcreek.com/wp-content/uploads/2015/06/rectangle-area-400x187.jpg&#34; alt=&#34;圖示&#34; /&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;public int computeArea(int A, int B, int C, int D, int E, int F, int G, int H) {
+   //if R1, R2 overlap, contains, or separate?
+    //1. seperate :
+    if(E&amp;gt;=C ||F&amp;gt;=D){
+        return (C-A)*(D-B) + (G-E)*(H-F);
+    }
+    if(A&amp;gt;=G ||B&amp;gt;=H){
+        return (C-A)*(D-B) + (G-E)*(H-F);
+    }
+    //2. contains or overlap:
+    int right = Math.min(C, G);
+    int left = Math.max(A, E);
+    int top = Math.min(H, D);
+    int bottom = Math.max(B, F);
+    return (C-A)*(D-B)+(G-E)*(H-F) - (right-left) * (top-bottom);
+}
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
     
     <item>
       <title>292. Nim Game</title>
-      <link>https://dixentw.github.io/s/leetcode/nimgame/</link>
+      <link>https://dixentw.github.io/leetcode/nimgame/</link>
       <pubDate>Sat, 30 Apr 2016 09:28:52 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/nimgame/</guid>
+      <guid>https://dixentw.github.io/leetcode/nimgame/</guid>
       <description>&lt;p&gt;You are playing the following Nim Game with your friend: There is a heap of stones on the table, each time one of you take turns to remove 1 to 3 stones. The one who removes the last stone will be the winner. You will take the first turn to remove the stones.&lt;/p&gt;
 
 &lt;p&gt;Both of you are very clever and have optimal strategies for the game. Write a function to determine whether you can win the game given the number of stones in the heap.&lt;/p&gt;
@@ -44,10 +99,10 @@
     
     <item>
       <title>100. Same Tree</title>
-      <link>https://dixentw.github.io/s/leetcode/sametree/</link>
+      <link>https://dixentw.github.io/leetcode/sametree/</link>
       <pubDate>Sat, 30 Apr 2016 09:25:21 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/sametree/</guid>
+      <guid>https://dixentw.github.io/leetcode/sametree/</guid>
       <description>&lt;p&gt;Given two binary trees, write a function to check if they are equal or not.&lt;/p&gt;
 
 &lt;p&gt;Two binary trees are considered equal if they are structurally identical and the nodes have the same value.&lt;/p&gt;
@@ -77,10 +132,10 @@
     
     <item>
       <title>49. Group Anagrams</title>
-      <link>https://dixentw.github.io/s/leetcode/groupanagram/</link>
+      <link>https://dixentw.github.io/leetcode/groupanagram/</link>
       <pubDate>Sat, 30 Apr 2016 09:15:42 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/groupanagram/</guid>
+      <guid>https://dixentw.github.io/leetcode/groupanagram/</guid>
       <description>&lt;p&gt;Given an array of strings, group anagrams together.&lt;/p&gt;
 
 &lt;p&gt;For example, given: &lt;code&gt;[&amp;quot;eat&amp;quot;, &amp;quot;tea&amp;quot;, &amp;quot;tan&amp;quot;, &amp;quot;ate&amp;quot;, &amp;quot;nat&amp;quot;, &amp;quot;bat&amp;quot;]&lt;/code&gt;,
@@ -183,10 +238,10 @@ public List&amp;lt;List&amp;lt;String&amp;gt;&amp;gt; groupAnagrams(String[] str
     
     <item>
       <title>242. Valid Anagram</title>
-      <link>https://dixentw.github.io/s/leetcode/anagram/</link>
+      <link>https://dixentw.github.io/leetcode/anagram/</link>
       <pubDate>Thu, 28 Apr 2016 22:43:25 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/anagram/</guid>
+      <guid>https://dixentw.github.io/leetcode/anagram/</guid>
       <description>&lt;p&gt;Given two strings s and t, write a function to determine if t is an anagram of s.&lt;/p&gt;
 
 &lt;p&gt;For example,
@@ -248,10 +303,10 @@ What if the inputs contain unicode characters? How would you adapt your solution
     
     <item>
       <title>1. twosum</title>
-      <link>https://dixentw.github.io/s/leetcode/twosum/</link>
+      <link>https://dixentw.github.io/leetcode/twosum/</link>
       <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/twosum/</guid>
+      <guid>https://dixentw.github.io/leetcode/twosum/</guid>
       <description>&lt;p&gt;Given an array of integers, return indices of the two numbers such that they add up to a specific target.
 You may assume that each input would have exactly one solution.&lt;/p&gt;
 
@@ -313,10 +368,10 @@ The return format had been changed to zero-based indices. Please read the above 
     
     <item>
       <title>205. Isomorphic Strings</title>
-      <link>https://dixentw.github.io/s/leetcode/isomorphicstring/</link>
+      <link>https://dixentw.github.io/leetcode/isomorphicstring/</link>
       <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/isomorphicstring/</guid>
+      <guid>https://dixentw.github.io/leetcode/isomorphicstring/</guid>
       <description>&lt;p&gt;Given two strings s and t, determine if they are isomorphic.&lt;/p&gt;
 
 &lt;p&gt;Two strings are isomorphic if the characters in s can be replaced to get t.&lt;/p&gt;
@@ -344,10 +399,10 @@ You may assume both s and t have the same length.&lt;/p&gt;
     
     <item>
       <title>290. Word Pattern</title>
-      <link>https://dixentw.github.io/s/leetcode/wordpattern/</link>
+      <link>https://dixentw.github.io/leetcode/wordpattern/</link>
       <pubDate>Thu, 28 Apr 2016 22:05:51 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/wordpattern/</guid>
+      <guid>https://dixentw.github.io/leetcode/wordpattern/</guid>
       <description>&lt;p&gt;Given a &lt;code&gt;pattern&lt;/code&gt; and a string &lt;code&gt;str&lt;/code&gt;, find if &lt;code&gt;str&lt;/code&gt; follows the same pattern.&lt;/p&gt;
 
 &lt;p&gt;Here follow means a full match, such that there is a bijection between a letter in pattern and a non-empty word in str.&lt;/p&gt;
@@ -396,10 +451,10 @@ pattern = &amp;ldquo;abba&amp;rdquo;, str = &amp;ldquo;dog dog dog dog&amp;rdquo
     
     <item>
       <title>299. Bulls and Cows</title>
-      <link>https://dixentw.github.io/s/leetcode/bullandcow/</link>
+      <link>https://dixentw.github.io/leetcode/bullandcow/</link>
       <pubDate>Thu, 28 Apr 2016 21:27:21 +0800</pubDate>
       
-      <guid>https://dixentw.github.io/s/leetcode/bullandcow/</guid>
+      <guid>https://dixentw.github.io/leetcode/bullandcow/</guid>
       <description>&lt;p&gt;You are playing the following Bulls and Cows game with your friend: You write down a number and ask your friend to guess what the number is. Each time your friend makes a guess, you provide a hint that indicates how many digits in said guess match your secret number exactly in both digit and position (called &amp;ldquo;bulls&amp;rdquo;) and &lt;code&gt;how many digits match the secret number but locate in the wrong position (called &amp;quot;cows&amp;quot;)&lt;/code&gt;. Your friend will use successive guesses and hints to eventually derive the secret number.&lt;/p&gt;
 
 &lt;p&gt;For example:&lt;/p&gt;
