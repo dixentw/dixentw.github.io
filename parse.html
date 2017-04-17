@@ -1,0 +1,23 @@
+<html>
+	<head>
+		<title>parse</title>
+		<script>
+			function go(){
+				var text = document.getElementById("bbbb").value;
+				var o = JSON.parse(JSON.parse(text));
+				var pretty = JSON.stringify(o, null, 2);
+				document.getElementById("output").innerHTML = pretty;
+			}
+		</script>
+	</head>
+	<body>
+		<h1>json stringify to json string</h1>
+		<textarea id="bbbb" rows="30" cols="100"></textarea>
+		<button id="aaa" type="button" onclick="go()">Transfer IT!</button>
+		<hr>
+		output:<br/>
+		<pre>
+			<div id="output"></div>
+		</pre>
+	</body>
+</html>
